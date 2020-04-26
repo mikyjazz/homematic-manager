@@ -11,8 +11,7 @@ Configuration and administration of [HomeMatic](http://www.homematic.com) of Hom
 >  With the Homematic Manager it is possible to learn and pair devices, manage device configurations and direct links
 and much more. A more detailed description (in german) can be found in the [Homematic Forum](https://homematic-forum.de/forum/viewtopic.php?f=18&t=45134).
 
-Under [latest releases](https://github.com/hobbyquaker/homematic-manager/releases/latest) there are downloads for macOS,
-Linux and Windows of the original branch.
+Under [latest releases](https://github.com/mikyjazz/homematic-manager/releases/latest) there are downloads for Windows.
 
 ![](docs/hmm1.png)
 ![](docs/hmm2.png)
