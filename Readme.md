@@ -1,35 +1,32 @@
 <img width="152px" src="build/icon.png" align="left"/> 
 
-# Homematic Manager
+# Homematic Manager (Mikyjazz fork)
 
-[![Current Release](https://img.shields.io/github/release/hobbyquaker/homematic-manager.svg?colorB=4cc61e)](https://github.com/hobbyquaker/homematic-manager/releases/latest)
-[![Dependency Status](https://david-dm.org/hobbyquaker/homematic-manager/status.svg)](https://david-dm.org/hobbyquaker/homematic-manager)
-[![macOS and Linux Build Status](https://travis-ci.org/hobbyquaker/homematic-manager.svg?branch=master)](https://travis-ci.org/hobbyquaker/homematic-manager)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/hobbyquaker/homematic-manager?branch=master&svg=true)](https://ci.appveyor.com/project/hobbyquaker/homematic-manager)
+[![Current Release](https://img.shields.io/github/release/hobbyquaker/homematic-manager.svg?colorB=4cc61e)](https://github.com/mikyjazz/homematic-manager/releases/latest)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![License: GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 
-Konfiguration und Administration von [HomeMatic](http://www.homematic.com) und HomematicIP Geräten.
+Configuration and administration of [HomeMatic](http://www.homematic.com) of HomematicIP devices.
 
->  Mit dem Homematic Manager ist es möglich Geräte an- und abzulernen, Geräte-Konfigurationen und Direktverknüpfungen zu
-verwalten und vieles mehr. Eine Ausführlichere Beschreibung ist im [Homematic Forum](https://homematic-forum.de/forum/viewtopic.php?f=18&t=45134) zu finden.
+>  With the Homematic Manager it is possible to learn and pair devices, manage device configurations and direct links
+and much more. A more detailed description (in german) can be found in the [Homematic Forum](https://homematic-forum.de/forum/viewtopic.php?f=18&t=45134).
 
-Unter [latest releases](https://github.com/hobbyquaker/homematic-manager/releases/latest) sind Downloads für macOS, 
-Linux und Windows zu finden.
+Under [latest releases](https://github.com/hobbyquaker/homematic-manager/releases/latest) there are downloads for macOS,
+Linux and Windows of the original branch.
 
 ![](docs/hmm1.png)
 ![](docs/hmm2.png)
 ![](docs/hmm3.png)
 
-## Lizenz
+## Licence
 
 Copyright (c) 2014-2019 Sebastian "Hobbyquaker" Raff, André "Anli" Litfin
 
 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)
 
 
-Der obige Urheberrechtsvermerk ist in allen Kopien oder Teilkopien der Software beizulegen.
+The above copyright notice must be enclosed in all copies or partial copies of the software.
 
-DIE SOFTWARE WIRD OHNE JEDE AUSDRÜCKLICHE ODER IMPLIZIERTE GARANTIE BEREITGESTELLT, EINSCHLIESSLICH DER GARANTIE ZUR BENUTZUNG FÜR DEN VORGESEHENEN ODER EINEM BESTIMMTEN ZWECK SOWIE JEGLICHER RECHTSVERLETZUNG, JEDOCH NICHT DARAUF BESCHRÄNKT. IN KEINEM FALL SIND DIE AUTOREN ODER COPYRIGHTINHABER FÜR JEGLICHEN SCHADEN ODER SONSTIGE ANSPRÜCHE HAFTBAR ZU MACHEN, OB INFOLGE DER ERFÜLLUNG EINES VERTRAGES, EINES DELIKTES ODER ANDERS IM ZUSAMMENHANG MIT DER SOFTWARE ODER SONSTIGER VERWENDUNG DER SOFTWARE ENTSTANDEN.
+THE SOFTWARE IS PROVIDED WITHOUT ANY EXPRESS OR IMPLIED WARRANTY, INCLUDING THE WARRANTY, FOR USE FOR THE INTENDED OR PARTICULAR PURPOSE, OR ANY VIOLATION OF THE LAW, BUT NOT LIMITED TO IT. IN NO EVENT WILL THE AUTHORS OR COPYRIGHT OWNERS BE LIABLE FOR ANY DAMAGE OR OTHER CLAIMS, WHETHER AS A PERFORMANCE OF A CONTRACT, A DELICIOUS OR OTHERWISE IN CONNECTION WITH THE SOFTWARE OR OTHER USE OF THE SOFTWARE OR OTHER USE.
 
-HomeMatic und BidCoS sind eingetragene Warenzeichen der [eQ-3 AG](http://eq-3.de)
+HomeMatic and BidCoS are registered trademarks of [eQ-3 AG](http://eq-3.de)
