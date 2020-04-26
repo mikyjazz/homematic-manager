@@ -84,6 +84,7 @@ let mainWindow;
 let windowClosed;
 
 function createWindow() {
+
     const mainWindowState = windowStateKeeper({
         defaultWidth: 1280,
         defaultHeight: 960,
@@ -141,10 +142,12 @@ function createWindow() {
         config.rpcListenPort = port;
         nextPort(port + 1, portBin => {
             config.rpcListenPortBin = portBin;
-            findInterfaces();
+            //findInterfaces();
         });
     });
+    
 }
+
 
 function checkservice(host, port, callback) {
     const c = net.connect({
@@ -160,6 +163,7 @@ function checkservice(host, port, callback) {
     });
 }
 
+
 function findInterfaces() {
     const ports = {
         'BidCos-Wired': 2000,
@@ -169,6 +173,7 @@ function findInterfaces() {
         CUxD: 8701,
         rega: 8181
     };
+
     const queue = {};
     Object.keys(ports).forEach(iface => {
         queue[iface] = callback => {
@@ -205,12 +210,15 @@ function findInterfaces() {
                 pass: config.pass
             });
             getRegaNames();
-        }
-    });
+        }  
+        createWindow();
+    })
 }
 
+
 app.on('ready', () => {
-    createWindow();
+    //createWindow();
+    findInterfaces();
 });
 
 app.on('window-all-closed', () => {
@@ -220,7 +228,7 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
     log.debug('...activate!');
     if (mainWindow === null) {
-    //    CreateWindow();
+        //createWindow();
     }
 });
 
@@ -286,7 +294,7 @@ function initRpcClients() {
         log.debug('RPC -> ' + config.daemons[_daemon].ip + ':' + config.daemons[_daemon].port + ' init ' + initUrl + ' ' + ident);
         rpcClients[_daemon].methodCall('init', [initUrl, ident], (err, data) => {
             log.debug('    <- init response ' + JSON.stringify(err) + ' ' + JSON.stringify(data));
-            if (!err) {
+            if (err == null || !err) {
                 lastEvent[_daemon] = (new Date()).getTime();
                 connected[_daemon] = true;
                 ipcRpc.send('connection', [connected]);
@@ -356,7 +364,7 @@ function initRpcClients() {
 }
 
 function setServiceMessage(daemon, channel, datapoint, value) {
-    console.log('setServiceMessage', daemon, channel, datapoint, value);
+    log.debug('setServiceMessage', daemon, channel, datapoint, value);
     if (value) {
         if (!localServiceMessages[daemon]) {
             localServiceMessages[daemon] = {};
@@ -497,6 +505,7 @@ const rpcMethods = {
                     const d = localDevices[daemon][address];
                     const dev = {
                         ADDRESS: d.ADDRESS,
+                        NAME: d.NAME,
                         VERSION: d.VERSION,
                         AES_ACTIVE: d.AES_ACTIVE,
                         CHILDREN: d.CHILDREN,
@@ -572,8 +581,8 @@ function initRpcServer(protocol) {
 function initIpc() {
     ipcRpc.on('config', params => {
         config = params[0];
-        // Console.log(config);
-        if (config.clearCache) {
+        // log.debug(config);
+        if (config.clearCache) {            
             log.info('clear cache');
             delete config.clearCache;
             pjson.save('names_' + config.ccuAddress, {});
@@ -588,7 +597,10 @@ function initIpc() {
 
     ipcRpc.on('getConfig', (params, callback) => {
         log.debug('getConfig!');
-        callback(null, config);
+
+        if (callback) {
+            callback(null, config);
+        }
         ipcRpc.send('connection', [connected]);
     });
 
@@ -856,7 +868,7 @@ function getRegaNames() {
         } else {
             throw new Error('rega.getChannels empty result');
         }
-        // Console.log(err, res);
+        // log.debug(err, res);
     });
 }
 
@@ -896,3 +908,5 @@ app.on('quit', event => {
     }
     event.preventDefault();
 });
+
+

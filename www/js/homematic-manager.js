@@ -17,6 +17,7 @@ require('jquery-ui-multiselect-widget/src/jquery.multiselect');
 require('jquery-ui-multiselect-widget/src/jquery.multiselect.filter');
 require('free-jqgrid/dist/jquery.jqgrid.min')(window, $);
 require('free-jqgrid/dist/i18n/grid.locale-de')(window, $);
+require('free-jqgrid/dist/i18n/grid.locale-en')(window, $);
 
 $.extend($.jgrid.defaults, {autoencode: false});
 
@@ -36,7 +37,6 @@ const translation = require('./language.json');
 const missesTranslation = {};
 
 let language = 'de';
-
 const serviceMsgParams = [
     'CONFIG_PENDING',
     'DUTY_CYCLE',
@@ -64,6 +64,7 @@ let listRssi = [];
 let listInterfaces = [];
 let listMessages = [];
 let names = {};
+let listRpcMethods = [];
 let hash;
 const paramsetDescriptions = {};
 let firstLoad = true;
@@ -360,10 +361,15 @@ function translate() {
         const $this = $(this);
         $this.attr('title', _($this.attr('title')));
     });
+    $('.translateV').each(function () {
+        const $this = $(this);
+        $this.attr('value', _($this.attr('value')));
+    });
 }
 
 function getConfig() {
     firstLoad = true;
+
     ipcRpc.send('getConfig', [], (err, data) => {
         config = data;
 
@@ -372,7 +378,7 @@ function getConfig() {
         }
 
         $('.version').html(config.version);
-        language = config.language || 'de';
+        language = config.language || 'en';
 
         $.getJSON('easymodes/localization/' + language + '/GENERIC.json', data => {
             if (!easymodes.lang[language]) {
@@ -390,12 +396,12 @@ function getConfig() {
         initDialogsMisc();
         initDialogParamset();
         initDialogLinkParamset();
-
+        
         initGridDevices();
         initGridMessages();
         initGridLinks();
         initConsole();
-
+       
         $('#loader').hide();
 
         if (!config.ccuAddress) {
@@ -404,7 +410,6 @@ function getConfig() {
 
         const tmp = window.location.hash.slice(1).split('/');
         hash = tmp[1];
-
         let count = 0;
         if ($selectBidcosDaemon) {
             $selectBidcosDaemon.html('');
@@ -431,7 +436,7 @@ function getConfig() {
             const index = $('#tabs-main a[href="#' + tmp[2] + '"]').parent().index();
             $tabsMain.tabs('option', 'active', index - 2);
         }
-
+        
         getNames(() => {
             initDaemon();
             // At this point everything should be initialized
@@ -441,12 +446,14 @@ function getConfig() {
     ipcRpc.send('getConfig');
 }
 function getNames(callback) {
-    ipcRpc.send('getNames', [], (err, data) => {
-        names = data;
-        if (typeof callback === 'function') {
-            callback();
-        }
-    });
+    if (listRpcMethods.includes('getNames')) {
+        ipcRpc.send('getNames', [], (err, data) => {
+            names = data;            
+        });
+    } 
+    if (typeof callback === 'function') {
+        callback();
+    }
 }
 function initTabs() {
     $tabsMain.tabs({
@@ -461,8 +468,7 @@ function initTabs() {
         create() {
             $('#tabs-main ul.ui-tabs-nav').prepend('<li><select id="select-bidcos-daemon"></select></li>');
             $selectBidcosDaemon = $('#select-bidcos-daemon');
-
-            $selectBidcosDaemon.change(() => {
+            $selectBidcosDaemon.change(() => {                
                 initDaemon();
             });
 
@@ -554,6 +560,7 @@ function initDialogsMisc() {
                 text: _('Save & Restart'),
                 click() {
                     $(this).dialog('close');
+                    config.language = $.trim($('#ui-language-select').val());
                     config.rpcInitIp = $.trim($('#init-ip-select').val());
                     config.ccuAddress = $.trim($('#ccu-address').val());
                     config.user = $.trim($('#auth-user').val());
@@ -619,7 +626,7 @@ function initDaemon() {
     firstLoad = false;
 
     console.log('initDaemon', daemon);
-
+    console.log('window.location',  window.location);
     if (daemon && config.daemons[daemon]) {
         const {type} = config.daemons[daemon];
         daemonType = type;
@@ -746,6 +753,22 @@ function getDevices(callback) {
                     }
                     indexTargetRoles[roles[j]].push(listDevices[i].ADDRESS);
                 }
+            }
+            if (!listRpcMethods.includes('getNames')) {
+                if ( listDevices[i].ADDRESS) {
+                    if (listDevices[i].NAME) {
+                        names[listDevices[i].ADDRESS] = listDevices[i].NAME;
+                    } else {
+                        const devSubAddress = listDevices[i].ADDRESS.slice(-2);
+                        const devAddress = listDevices[i].ADDRESS.slice(0, -2);
+                        if (devSubAddress.startsWith(':') && names[devAddress] ) {
+                            names[listDevices[i].ADDRESS] = names[devAddress];
+                        }
+                    }
+                    if (!listDevices[i].Name) {
+                        listDevices[i].Name = listDevices[i].NAME;
+                    }
+                } 
             }
         }
     });
@@ -1528,8 +1551,10 @@ function refreshGridDevices() {
 
         listDevices[i].aes_active = listDevices[i].AES_ACTIVE ? listDevices[i].AES_ACTIVE = '<span style="display:inline-block; vertical-align:bottom" class="ui-icon ui-icon-key"></span>' : ''; // eslint-disable-line camelcase
 
-        if (names[listDevices[i].ADDRESS]) {
+        if (names[listDevices[i].ADDRESS])  {     
             listDevices[i].Name = names[listDevices[i].ADDRESS];
+        } else if (listDevices[i].NAME && !listDevices[i].Name) {
+            listDevices[i].Name = listDevices[i].NAME;
         }
 
         let paramsets = '';
@@ -4187,6 +4212,7 @@ function initConsole() {
 function elementConsoleMethod(callback) {
     if (daemon === 'null') {
         $consoleRpcSend.attr('disabled', true).button('refresh');
+        console.log('RPC Console disabled', daemon);
         return;
     }
 
@@ -4233,6 +4259,7 @@ function elementConsoleMethod(callback) {
 
             if (!err && data && data.length > 0) {
                 data.sort();
+                listRpcMethods = data;
                 data.forEach(method => {
                     if ((config.daemons[daemon].type !== 'HmIP') || (hmipExclude.indexOf(method) === -1)) {
                         $consoleRpcMethod.append('<option value="' + method + '">' + method + '</option>');
@@ -4656,7 +4683,7 @@ function dialogConfigOpen() {
             $('#init-ip-select').append('<option>' + ip + '</option>');
         }
     });
-
+    $('#ui-language-select').val(config.language);
     $('#ccu-address').val(config.ccuAddress);
     $('#auth-user').val(config.user);
     $('#auth-pass').val(config.pass);

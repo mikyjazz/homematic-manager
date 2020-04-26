@@ -3,5 +3,10 @@
     "MOTION_DETECTOR": {
       "EVENT_FILTER_PERIOD": "Empfindlichkeit, Auslösen bei EVENT_FILTER_NUMBER Sensor-Impulsen innerhalb x Sekunden"
     }
+  },
+  "en": {
+    "MOTION_DETECTOR": {
+      "EVENT_FILTER_PERIOD": "Sensitivity, triggering on EVENT_FILTER_NUMBER sensor impulses within x seconds"
+    }
   }
 }

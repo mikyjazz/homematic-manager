@@ -98,5 +98,105 @@
     "OFF_LEVEL": "Pegel im Zustand Aus",
     "OFF_TIME": "Verweildauer im Zustand Aus",
     "DBL_PRESS_TIME": "Zeit für Doppelklick-Tastensperre"
+  },
+  "en": {
+    "ACTION_TYPE": {
+      "helpText": "In response to a key press or a switching command, actuators perform an action of the assigned action profile.",
+      "params": {
+        "INACTIVE": "inactive, no reaction",
+        "JUMP_TO_TARGET": "jump in the profile depending on the current state according to the jump targets defined with JT_xx",
+        "TOGGLE_TO_COUNTER": "jump in the profile depending on the last bit of the keystroke counter (0 = off, 1 = on)",
+        "TOGGLE_INV_TO_COUNTER": "jump in the profile depending on the last bit of the keystroke counter (0 = on, 1 = off)",
+        "UPDIM": "dim up at DIM_STEP and execute the profile from the start of the duty cycle",
+        "DOWNDIM": "dim down by DIM_STEP and execute the profile from the start of the duty cycle. If the value falls below the ON_MIN_LEVEL, jump to the start of the switch-off period.",
+        "TOGGLEDIM": "dim the level by DIM_STEP contrary to the last direction of the actuator change. Behavior is like UPDIM or DOWNDIM.",
+        "TOGGLEDIM_TO_COUNTER": "dim by DIM_STEP in the direction of the last bit of the push-button counter (0 = down, 1 = up). Behavior is like UPDIM or DOWNDIM.",
+        "TOGGLEDIM_INV_TO_COUNTER": "Dim by DIM_STEP inversely to the direction of the last bit of the key press counter (0 = up, 1 = down). Behavior is like UPDIM or DOWNDIM."
+      }
+    },
+    "LOGIC_COMBINATION": {
+      "helpText": "Linking rule according to which virtual actuator channels are mapped to the physical output",
+      "params": {
+        "LOGIC_INACTIVE": "Channel is ignored when linking",
+        "LOGIC_OR": "higher level wins",
+        "LOGIC_AND": "lower level wins",
+        "LOGIC_XOR": "if both! = 0, then result = 0",
+        "LOGIC_NOR": "OR with inversion of the result (200 - x)",
+        "LOGIC_NAND": "AND with inversion of the result (200 - x)",
+        "LOGIC_ORINVERSE": "OR with inversion of the channel value (200 - x)",
+        "LOGIC_ANDINVERSE": "AND with inversion of the channel value (200 - x)",
+        "LOGIC_PLUS": "x + y, max: 200",
+        "LOGIC_MINUS": "x - y, min: 0",
+        "LOGIC_MUL": "((x * y) + 100) / 200",
+        "LOGIC_PLUSINVERS": "x + (200 - y), max: 200",
+        "LOGIC_MINUSINVERS": "x - (200 - y), min: 0",
+        "LOGIC_MULINVERS": "((x * (200 - y)) + 100) / 200",
+        "LOGIC_INVERSPLUS": "200 - (x + y), min: 0",
+        "LOGIC_INVERSMINUS": "(200 - (x - y), max: 200",
+        "LOGIC_INVERSMUL": "200 - (((x * y) + 100) / 200)"
+      }
+    },
+    "CT_RAMPON": {
+      "helpText": "Limit condition for switch-on ramp",
+      "params": {}
+    },
+    "CT_RAMPOFF": {
+      "helpText": "Limit condition for switch-off ramp",
+      "params": {}
+    },
+    "CT_ONDELAY": {
+      "helpText": "Limit condition\tfor switch-on delay",
+      "params": {}
+    },
+    "CT_OFFDELAY": {
+      "helpText": "Limit condition\tfor switch-off delay",
+      "params": {}
+    },
+    "CT_ON": {
+      "helpText": "Limit condition\tfor switch-on dwell time",
+      "params": {}
+    },
+    "CT_OFF": {
+      "helpText": "Limit condition\tfor switch-off dwell time",
+      "params": {}
+    },
+    "JT_RAMPON": {
+      "helpText": "Jump destination for switch-on ramp",
+      "params": {}
+    },
+    "JT_RAMPOFF": {
+      "helpText": "Jump destination for switch-off ramp",
+      "params": {}
+    },
+    "JT_ONDELAY": {
+      "helpText": "Jump destination\tfor switch-on delay",
+      "params": {}
+    },
+    "JT_OFFDELAY": {
+      "helpText": "Jump destination\tfor switch-off delay",
+      "params": {}
+    },
+    "JT_ON": {
+      "helpText": "Jump target\tfor switch-on dwell time",
+      "params": {}
+    },
+    "JT_OFF": {
+      "helpText": "Jump target\tfor switch-off dwell time",
+      "params": {}
+    },
+    "ON_MIN_LEVEL": "Minimum on level",
+    "ON_LEVEL": "Level in the on state",
+    "RAMP_START_STEP": "Reaction jump",
+    "RAMPON_TIME": "Dimming (on) time",
+    "RAMPOFF_TIME": "Dimming (off) time",
+    "DIM_STEP": "Dim step for dimming",
+    "OFFDELAY_STEP": "Switch-off delay jump",
+    "OFFDELAY_NEWTIME": "Off delay flashing time new level",
+    "OFFDELAY_OLDTIME": "Switch-off delay flashing time of old level",
+    "DIM_MAX_LEVEL": "Level limitation when dimming up",
+    "DIM_MIN_LEVEL": "Level limitation when dimming down",
+    "OFF_LEVEL": "Level in the off state",
+    "OFF_TIME": "Dwell time in the off state",
+    "DBL_PRESS_TIME": "Time for double-click key lock"
   }
 }

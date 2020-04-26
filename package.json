@@ -23,8 +23,9 @@
     "yalm": "4.1.0"
   },
   "devDependencies": {
-    "electron": "4.0.5",
+    "electron": "^4.2.12",
     "electron-builder": "20.38.5",
+    "electron-packager": "^14.2.1",
     "html-entities": "^1.2.1",
     "xo": "0.24.0"
   },

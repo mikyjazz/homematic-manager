@@ -8,7 +8,8 @@
     ],
     "returns": "void",
     "help": {
-      "de": "Diese Methode bricht einen anhängigen Löschvorgang für ein Gerät ab.<br>Es können nur Löschvorgänge abgebrochen werden, die mit dem Flag DELETE_FLAG_DEFER ausgeführt wurden."
+      "de": "Diese Methode bricht einen anhängigen Löschvorgang für ein Gerät ab.<br>Es können nur Löschvorgänge abgebrochen werden, die mit dem Flag DELETE_FLAG_DEFER ausgeführt wurden.",
+      "en": "This method cancels a pending deletion process for a device.<br>Only deletion processes that were executed with the flag DELETE_FLAG_DEFER can be canceled."
     }
   },
   "activateLinkParamset": {
@@ -28,7 +29,8 @@
     ],
     "returns": "void",
     "help": {
-      "de": "Mit dieser Methode wird ein Link-Parameterset aktiviert. Das logische Gerät verhält sich dann so als ob es direkt von dem entsprechenden zugeordneten Gerät angesteuert worden wäre. Hiermit kann z.B. ein Link-Parameter-Set getestet werden. Der Parameter address ist die Addresses des anzusprechenden logischen Gerätes. Der Parameter peer_address ist die Addresse des Kommunikationspartners, dessen Link-Parameter-Set aktiviert werden soll. Der Parameter long_press gibt an, ob das Parameterset für den langen Tastendruck aktiviert werden soll."
+      "de": "Mit dieser Methode wird ein Link-Parameterset aktiviert. Das logische Gerät verhält sich dann so als ob es direkt von dem entsprechenden zugeordneten Gerät angesteuert worden wäre. Hiermit kann z.B. ein Link-Parameter-Set getestet werden. Der Parameter address ist die Addresses des anzusprechenden logischen Gerätes. Der Parameter peer_address ist die Addresse des Kommunikationspartners, dessen Link-Parameter-Set aktiviert werden soll. Der Parameter long_press gibt an, ob das Parameterset für den langen Tastendruck aktiviert werden soll.",
+      "en": "This method activates a link parameter set. The logical device then behaves as if it had been controlled directly by the corresponding assigned device. With this e.g. a link parameter set can be tested. The address parameter is the address of the logical device to be addressed. The parameter peer_address is the address of the communication partner whose link parameter set is to be activated. The long_press parameter specifies whether the parameter set should be activated for the long key press."
     }
   },
   "addDevice": {
@@ -47,7 +49,8 @@
     ],
     "returns": "DeviceDescription",
     "help": {
-      "de": "Diese Methode lernt ein Gerät anhand seiner Seriennummer an die CCU an. Diese Funktion wird nicht von jedem Gerät unterstützt. Rückgabewert ist die DeviceDescription des neu angelernten Geräts.<br>Der optionale Parameter mode bestimmt die Art des Installations-Modus:<br>1 = Normaler Installations-Modus<br>2 = Während des Anlernens werden in den Parametersets „MASTER“ default Parameter gesetzt und alle bestehenden Verknüpfungen werden gelöscht."
+      "de": "Diese Methode lernt ein Gerät anhand seiner Seriennummer an die CCU an. Diese Funktion wird nicht von jedem Gerät unterstützt. Rückgabewert ist die DeviceDescription des neu angelernten Geräts.<br>Der optionale Parameter mode bestimmt die Art des Installations-Modus:<br>1 = Normaler Installations-Modus<br>2 = Während des Anlernens werden in den Parametersets „MASTER“ default Parameter gesetzt und alle bestehenden Verknüpfungen werden gelöscht.",
+      "en": "This method teaches a device to the CCU based on its serial number. This function is not supported by every device. The return value is the DeviceDescription of the newly taught device. <br> The optional parameter mode determines the type of installation mode: <br> 1 = Normal installation mode <br> 2 = During teaching, default parameters are set in the „MASTER“ parameter sets is set and all existing links are deleted."
     }
   },
   "addLink": {
@@ -79,14 +82,16 @@
     ],
     "returns": "void",
     "help": {
-      "de": "Diese Methode erstellt eine Kommunikationsbeziehung zwischen zwei logischen Geräten. Die Parameter sender und receiver bezeichnen die beiden zu verknüpfenden Partner. Die Parameter name und description sind optional und beschreiben die Verknüpfung näher."
+      "de": "Diese Methode erstellt eine Kommunikationsbeziehung zwischen zwei logischen Geräten. Die Parameter sender und receiver bezeichnen die beiden zu verknüpfenden Partner. Die Parameter name und description sind optional und beschreiben die Verknüpfung näher.",
+      "en": "This method creates a communication relationship between two logical devices. The parameters sender and receiver designate the two partners to be linked. The parameters name and description are optional and describe the link in more detail."
     }
   },
   "addVirtualDeviceInstance": {
     "params": [],
     "returns": "",
     "help": {
-      "de": "leider nicht von eQ-3 dokumentiert."
+      "de": "leider nicht von eQ-3 dokumentiert.",
+      "en": "unfortunately not documented by eQ-3."
     }
   },
   "changeKey": {
@@ -98,7 +103,8 @@
     ],
     "returns": "void",
     "help": {
-      "de": "Diese Methode ändert den vom Schnittstellenprozess verwendeten AES-Schlüssel. Der Schlüssel wird ebenfalls in allen angelernten Geräten getauscht."
+      "de": "Diese Methode ändert den vom Schnittstellenprozess verwendeten AES-Schlüssel. Der Schlüssel wird ebenfalls in allen angelernten Geräten getauscht.",
+      "en": "This method changes the AES key used by the interface process. The key is also exchanged in all learned devices."
     }
   },
   "clearConfigCache": {
@@ -110,7 +116,8 @@
     ],
     "returns": "void",
     "help": {
-      "de": "Diese Methode löscht alle zu einem Gerät in der CCU gespeicherten Konfigurationsdaten. Diese werden nicht sofort wieder vom Gerät abgefragt, sondern wenn sie das nächste mal benötigt werden."
+      "de": "Diese Methode löscht alle zu einem Gerät in der CCU gespeicherten Konfigurationsdaten. Diese werden nicht sofort wieder vom Gerät abgefragt, sondern wenn sie das nächste mal benötigt werden.",
+      "en": "This method deletes all configuration data saved for a device in the CCU. These are not immediately queried by the device again, but the next time they are needed."
     }
   },
   "deleteDevice": {
@@ -131,7 +138,8 @@
     ],
     "returns": "DeviceDescription",
     "help": {
-      "de": "Diese Methode löscht ein Gerät aus dem Schnittstellenprozess.<br>Der Parameter address ist die Addresse des zu löschenden Gerätes.<br>Flags ist ein bitweises oder folgender Werte:<ul><li>DELETE_FLAG_RESET Das Gerät wird vor dem Löschen in den Werkszustand zurückgesetzt </li><li>DELETE_FLAG_FORCE Das Gerät wird auch gelöscht, wenn es nicht erreichbar ist </li><li>DELETE_FLAG_DEFER Wenn das Gerät nicht erreichbar ist, wird es bei nächster Gelegenheit gelöscht</li></ul>Bei Homematic IP sind die Flags 0x01 und 0x04 nicht mehr vorhanden und das Löschen von Geräten ist per Default so, als wenn diese Flags gesetzt worden wären."
+      "de": "Diese Methode löscht ein Gerät aus dem Schnittstellenprozess.<br>Der Parameter address ist die Addresse des zu löschenden Gerätes.<br>Flags ist ein bitweises oder folgender Werte:<ul><li>DELETE_FLAG_RESET Das Gerät wird vor dem Löschen in den Werkszustand zurückgesetzt </li><li>DELETE_FLAG_FORCE Das Gerät wird auch gelöscht, wenn es nicht erreichbar ist </li><li>DELETE_FLAG_DEFER Wenn das Gerät nicht erreichbar ist, wird es bei nächster Gelegenheit gelöscht</li></ul>Bei Homematic IP sind die Flags 0x01 und 0x04 nicht mehr vorhanden und das Löschen von Geräten ist per Default so, als wenn diese Flags gesetzt worden wären.",
+      "en": "This method deletes a device from the interface process. <br> The address parameter is the address of the device to be deleted. <br> Flags is a bitwise or the following values: <ul> <li> DELETE_FLAG_RESET The device is reset to the factory state before deletion reset </li> <li> DELETE_FLAG_FORCE The device will also be deleted if it is not available </li> <li> DELETE_FLAG_DEFER If the device is not available, it will be deleted at the next opportunity </li> </ul> At Homematic IP the flags 0x01 and 0x04 are no longer available and the deletion of devices is by default as if these flags had been set."
     }
   },
   "determineParameter": {
@@ -151,7 +159,8 @@
     ],
     "returns": "void",
     "help": {
-      "de": "Mit dieser Methode wird ein Parameter eines Parameter-Sets automatisch bestimmt. Der Parameter kann bei erfolgreicher Ausführung anschließend sofort über getParamset gelesen werden.<br>Der Parameter address ist die Addresses eines logischen Gerätes.<br>Der Parameter paramset_key ist „MASTER“, „VALUES“ oder die Adresse eines Kommunikationspartners für das entsprechende Link-Parameter-Set (siehe getLinkPeers). Der Parameter parameter_id bestimmt den automatisch zu bestimmenden Parameter."
+      "de": "Mit dieser Methode wird ein Parameter eines Parameter-Sets automatisch bestimmt. Der Parameter kann bei erfolgreicher Ausführung anschließend sofort über getParamset gelesen werden.<br>Der Parameter address ist die Addresses eines logischen Gerätes.<br>Der Parameter paramset_key ist „MASTER“, „VALUES“ oder die Adresse eines Kommunikationspartners für das entsprechende Link-Parameter-Set (siehe getLinkPeers). Der Parameter parameter_id bestimmt den automatisch zu bestimmenden Parameter.",
+      "en": "With this method, a parameter of a parameter set is determined automatically. After successful execution, the parameter can then be read immediately via getParamset. <br> The parameter address is the address of a logical device. <br> The parameter paramset_key is „MASTER“, „VALUES“ or the address of a communication partner for the corresponding link Parameter set (see getLinkPeers). The parameter_id parameter determines the parameter to be determined automatically."
     }
   },
   "getDeviceDescription": {
@@ -163,14 +172,16 @@
     ],
     "returns": "DeviceDescription",
     "help": {
-      "de": "Diese Methode gibt die Gerätebeschreibung des als address übergebenen Gerätes zurück."
+      "de": "Diese Methode gibt die Gerätebeschreibung des als address übergebenen Gerätes zurück.",
+      "en": "This method returns the device description of the device passed as address."
     }
   },
   "getInstallMode": {
     "params": [],
     "returns": "Integer",
     "help": {
-      "de": "Diese Methode gibt die verbliebene Restzeit in Sekunden im Anlernmodus zurück. Der Wert  0 bedeutet, der Anlernmodus ist nicht aktiv."
+      "de": "Diese Methode gibt die verbleibende Restzeit in Sekunden im Anlernmodus zurück. Der Wert  0 bedeutet, der Anlernmodus ist nicht aktiv.",
+      "en": "This method returns the remaining time in seconds in teach mode. The value 0 means that the teach-in mode is not active."
     }
   },
   "getKeyMismatchDevice": {
@@ -182,14 +193,16 @@
     ],
     "returns": "String",
     "help": {
-      "de": "Diese Methode gibt die Seriennummer des letzten Gerätes zurück, das aufgrund eines falschen AES-Schlüssels nicht angelernt werden konnte. Mit reset=true wird diese Information im Schnittstellenprozess zurückgesetzt."
+      "de": "Diese Methode gibt die Seriennummer des letzten Gerätes zurück, das aufgrund eines falschen AES-Schlüssels nicht angelernt werden konnte. Mit reset=true wird diese Information im Schnittstellenprozess zurückgesetzt.",
+      "en": "This method returns the serial number of the last device that could not be learned due to an incorrect AES key. With reset = true this information is reset in the interface process."
     }
   },
   "getLGWStatus": {
     "params": [],
     "returns": "",
     "help": {
-      "de": "Gibt den Status des Wired-LAN-Gateways zurück."
+      "de": "Gibt den Status des Wired-LAN-Gateways zurück.",
+      "en": "Returns the status of the wired LAN gateway."
     }
   },
   "getLinkInfo": {
@@ -205,7 +218,8 @@
     ],
     "returns": "Array",
     "help": {
-      "de": "Diese Methode gibt den Namen und die Beschreibung für eine bestehende Kommunikationsbeziehung zurück. Die Parameter sender_address und receiver_address bezeichnen die beiden verknüpften Partner."
+      "de": "Diese Methode gibt den Namen und die Beschreibung für eine bestehende Kommunikationsbeziehung zurück. Die Parameter sender_address und receiver_address bezeichnen die beiden verknüpften Partner.",
+      "en": "This method returns the name and description for an existing communication relationship. The parameters sender_address and receiver_address designate the two linked partners."
     }
   },
   "getLinkPeers": {
@@ -217,7 +231,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Diese Methode gibt alle einem logischen Gerät zugeordneten Kommunikationspartner zurück. Die zurückgegebenen Werte können als Parameter paramset_key für getParamset() und putParamset() verwendet werden. Der Parameter address ist die Adresse eines logischen Gerätes."
+      "de": "Diese Methode gibt alle einem logischen Gerät zugeordneten Kommunikationspartner zurück. Die zurückgegebenen Werte können als Parameter paramset_key für getParamset() und putParamset() verwendet werden. Der Parameter address ist die Adresse eines logischen Gerätes.",
+      "en": "This method returns all communication partners assigned to a logical device. The returned values can be used as parameters paramset_key for getParamset () and putParamset (). The address parameter is the address of a logical device."
     }
   },
   "getLinks": {
@@ -242,7 +257,8 @@
     ],
     "returns": "Array",
     "help": {
-      "de": "Diese Methode gibt alle einem logischen Kanal oder Gerät zugeordneten Kommunikationsbeziehungen zurück.<br>Der Parameter address ist die Kanal- oder Geräteadresse des logischen Objektes, auf das sich die Abfrage bezieht. Bei address==&quot;&quot; werden alle Kommunikationsbeziehungen des gesamten Schnittstellenprozesses zurückgegeben.<br>Der Parameter flags ist ein bitweises oder folgender Werte:<ul><li>GL_FLAG_GROUP Wenn address einen Kanal bezeichnet, der sich in einer Gruppe befindet, werden die Kommunikationsbeziehungen für alle Kanäle der Gruppe zurückgegeben.</li><li>GL_FLAG_SENDER_PARAMSET Das Feld SENDER_PARAMSET des Rückgabewertes wird gefüllt. </li><li>GL_FLAG_RECEIVER_PARAMSET Das Feld RECEIVER_PARAMSET des Rückgabewertes wird gefüllt.</li></ul>flags ist optional. Defaultwert ist 0x00."
+      "de": "Diese Methode gibt alle einem logischen Kanal oder Gerät zugeordneten Kommunikationsbeziehungen zurück.<br>Der Parameter address ist die Kanal- oder Geräteadresse des logischen Objektes, auf das sich die Abfrage bezieht. Bei address==&quot;&quot; werden alle Kommunikationsbeziehungen des gesamten Schnittstellenprozesses zurückgegeben.<br>Der Parameter flags ist ein bitweises oder folgender Werte:<ul><li>GL_FLAG_GROUP Wenn address einen Kanal bezeichnet, der sich in einer Gruppe befindet, werden die Kommunikationsbeziehungen für alle Kanäle der Gruppe zurückgegeben.</li><li>GL_FLAG_SENDER_PARAMSET Das Feld SENDER_PARAMSET des Rückgabewertes wird gefüllt. </li><li>GL_FLAG_RECEIVER_PARAMSET Das Feld RECEIVER_PARAMSET des Rückgabewertes wird gefüllt.</li></ul>flags ist optional. Defaultwert ist 0x00.",
+      "en": "This method returns all communication relationships assigned to a logical channel or device.<br>The parameter address is the channel or device address of the logical object to which the query relates. With address===&quot;&quot; all communication relationships of the entire interface process are returned. <br> The parameter flags is a bitwise or the following values: <ul> <li> GL_FLAG_GROUP If address designates a channel that is in a group, the communication relationships for all Channels of the group returned. </li> <li> GL_FLAG_SENDER_PARAMSET The field SENDER_PARAMSET of the return value is filled. </li> <li> GL_FLAG_RECEIVER_PARAMSET The field RECEIVER_PARAMSET of the return value is filled. </li> </ul> flags is optional. The default value is 0x00."
     }
   },
   "getMetadata": {
@@ -258,7 +274,8 @@
     ],
     "returns": "Variant",
     "help": {
-      "de": "Diese Methode gibt ein Metadatum zu einem Objekt zurück.<br><b>object_id</b> ist die Id des Metadaten-Objekts. Üblicherweise ist dies die Seriennummer eines Gerätes oder Kanals.<br><b>data_id</b> ist die Id des abzufragenden Metadatums. Diese Id kann frei gewählt werden. Der Rückgabewert entspricht in Datentyp und Wert der zuvor an setMetadata() als Parameter value übergebenen Variablen. "
+      "de": "Diese Methode gibt ein Metadatum zu einem Objekt zurück.<br><b>object_id</b> ist die Id des Metadaten-Objekts. Üblicherweise ist dies die Seriennummer eines Gerätes oder Kanals.<br><b>data_id</b> ist die Id des abzufragenden Metadatums. Diese Id kann frei gewählt werden. Der Rückgabewert entspricht in Datentyp und Wert der zuvor an setMetadata() als Parameter value übergebenen Variablen.",
+      "en": "This method returns metadata about an object. <br> <b> object_id </b> is the id of the metadata object. This is usually the serial number of a device or channel. <br> <b> data_id </b> is the ID of the metadata to be queried. This ID can be chosen freely. The return value corresponds in data type and value to the variables previously passed to setMetadata () as parameter value."
     }
   },
   "getAllMetadata": {
@@ -270,7 +287,8 @@
     ],
     "returns": "Struct",
     "help": {
-      "de": "Diese Methode gibt alle zuvor gesetzten Metadaten zu einem Objekt zurück.<br><b>object_id</b> ist die Id des Metadaten-Objekts. Üblicherweise ist dies die Seriennummer eines Gerätes oder Kanals. Durch Übergabe einer beliebigen Id können aber auch eigene Metadaten-Objekte angelegt werden.<br>Der Rückgabewert ist ein Struct, der zu jedem zuvor gesetzten Metadatum ein Feld enthält. Der Feldname ist der zuvor an setMetadata() als Parameter data_id übergebene Wert. Der Wert des Feldes entspricht in Datentyp und Wert der zuvor an setMetadata() als Parameter value übergebenen Variablen. "
+      "de": "Diese Methode gibt alle zuvor gesetzten Metadaten zu einem Objekt zurück.<br><b>object_id</b> ist die Id des Metadaten-Objekts. Üblicherweise ist dies die Seriennummer eines Gerätes oder Kanals. Durch Übergabe einer beliebigen Id können aber auch eigene Metadaten-Objekte angelegt werden.<br>Der Rückgabewert ist ein Struct, der zu jedem zuvor gesetzten Metadatum ein Feld enthält. Der Feldname ist der zuvor an setMetadata() als Parameter data_id übergebene Wert. Der Wert des Feldes entspricht in Datentyp und Wert der zuvor an setMetadata() als Parameter value übergebenen Variablen. ",
+      "en": "This method returns all previously set metadata about an object. <br> <b> object_id </b> is the id of the metadata object. This is usually the serial number of a device or channel. You can also create your own metadata objects by transferring any ID. <br> The return value is a structure that contains a field for each metadata that was previously set. The field name is the value previously passed to setMetadata () as the data_id parameter. The value of the field corresponds in data type and value to the variables previously passed to setMetadata () as parameter value."
     }
   },
   "getParamset": {
@@ -293,7 +311,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Mit dieser Methode wird ein komplettes Parameter-Set für ein logisches Gerät gelesen. Der Parameter address ist die Addresses eines logischen Gerätes. Der Parameter paramset_key ist „MASTER“, „VALUES“ oder die Adresse eines Kommunikationspartners für das entsprechende Link-Parameter-Set (siehe getLinkPeers).<br>Dem optionalen Parameter mode können folgende Werte übergeben werden (nur rfd):<ul><li>0 default: Keien Auswirkung, die Funktion verhält sicht wie der Aufruf ohne mode</li><li>1 UndefinedValues: Jeder Eintrag innerhalb des zurückgelieferten Paramset ins eine Struktur mit folgendem Aufbau:<br>„UNDEFINED“(Boolean) Flag ob der angeforderte Wert initial gesetzt wurde und somit wahrscheinlich nicht der Realität entspricht oder ob der Wert von einem Gerät empfangen wurde, true = Wert wurde initial gesetzt und noch nicht verändert, false = der Wert wurde neu gesetzt <br>„VALUE“(ValueType) Wert des angeforderten Parameter.<br>UndefindeValues kann nur für Parameter aus dem Parameterset „VALUES“ abgefragt werden. Bei HomeMatic IP gibt es für bestimmte Geräte zusätzlich den paramset_type„SERVICE“, welche Geräte dies sind, ist der jeweiligen DeviceDescription zu entnehmen.Ebenso ist dieses Parameter Set kanalübergreifend, so dass es über die XML-RPCSchnittstellefür alle Kanäle abgefragt werden kann, aber immer dieselben Parameterzurückliefert.<br>Hinweis: Diese Parameter werden bei jeder Anfrage direkt vom Gerät abgefragt, deshalbsollten sie wegen der DutyCycle Belastung nicht sehr häufig abgefragt werden."
+      "de": "Mit dieser Methode wird ein komplettes Parameter-Set für ein logisches Gerät gelesen. Der Parameter address ist die Addresses eines logischen Gerätes. Der Parameter paramset_key ist „MASTER“, „VALUES“ oder die Adresse eines Kommunikationspartners für das entsprechende Link-Parameter-Set (siehe getLinkPeers).<br>Dem optionalen Parameter mode können folgende Werte übergeben werden (nur rfd):<ul><li>0 default: Keien Auswirkung, die Funktion verhält sicht wie der Aufruf ohne mode</li><li>1 UndefinedValues: Jeder Eintrag innerhalb des zurückgelieferten Paramset ins eine Struktur mit folgendem Aufbau:<br>„UNDEFINED“(Boolean) Flag ob der angeforderte Wert initial gesetzt wurde und somit wahrscheinlich nicht der Realität entspricht oder ob der Wert von einem Gerät empfangen wurde, true = Wert wurde initial gesetzt und noch nicht verändert, false = der Wert wurde neu gesetzt <br>„VALUE“(ValueType) Wert des angeforderten Parameter.<br>UndefindeValues kann nur für Parameter aus dem Parameterset „VALUES“ abgefragt werden. Bei HomeMatic IP gibt es für bestimmte Geräte zusätzlich den paramset_type„SERVICE“, welche Geräte dies sind, ist der jeweiligen DeviceDescription zu entnehmen.Ebenso ist dieses Parameter Set kanalübergreifend, so dass es über die XML-RPCSchnittstellefür alle Kanäle abgefragt werden kann, aber immer dieselben Parameterzurückliefert.<br>Hinweis: Diese Parameter werden bei jeder Anfrage direkt vom Gerät abgefragt, deshalbsollten sie wegen der DutyCycle Belastung nicht sehr häufig abgefragt werden.",
+      "en": "This method reads a complete parameter set for a logical device. The address parameter is the address of a logical device. The parameter paramset_key is „MASTER“ „VALUES“ or the address of a communication partner for the corresponding link parameter set (see getLinkPeers). <br> The following values ​​can be transferred to the optional parameter mode (rfd only): <ul> < li> 0 default: no effect, the function behaves like the call without mode </li> <li> 1 UndefinedValues: each entry within the returned parameter set into a structure with the following structure: <br> „UNDEFINED“ (Boolean) flag whether the requested value was initially set and therefore probably does not correspond to reality or whether the value was received from a device, true = value was initially set and not yet changed, false = the value was newly set <br> „VALUE“ (ValueType ) Value of the requested parameter. <br> UndefindeValues ​​can only be queried for parameters from the „VALUES“ parameter set. With HomeMatic IP there is also the paramset_type „SERVICE“ for certain devices, which devices are listed in the respective DeviceDescription. This parameter set is also cross-channel, so that it can be queried for all channels via the XML-RPC interface, but always returns the same parameters. <br> Note: These parameters are queried directly by the device with every request, which is why they should not be queried very often due to the duty cycle load."
     }
   },
   "getParamsetDescription": {
@@ -309,7 +328,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Mit dieser Methode wird die Beschreibung eines Parameter-Sets ermittelt. Der Parameter address ist die Adresse eines logischen Gerätes (z.B. von listDevices zurückgegeben). Der Parameter paramset_type ist „MASTER“, „VALUES“ oder „LINK“.Bei HomeMatic IP gibt es für bestimmte Geräte zusätzlich den paramset_typeSERVICE, welche Geräte dies sind, ist der jeweiligen DeviceDescription zu entnehmen.Ebenso ist dieses Parameter Set kanalübergreifend, so dass es über die XML-RPCSchnittstellefür alle Kanäle abgefragt werden kann, aber immer dieselben Parameter zurückliefert. "
+      "de": "Mit dieser Methode wird die Beschreibung eines Parameter-Sets ermittelt. Der Parameter address ist die Adresse eines logischen Gerätes (z.B. von listDevices zurückgegeben). Der Parameter paramset_type ist „MASTER“, „VALUES“ oder „LINK“.Bei HomeMatic IP gibt es für bestimmte Geräte zusätzlich den paramset_typeSERVICE, welche Geräte dies sind, ist der jeweiligen DeviceDescription zu entnehmen.Ebenso ist dieses Parameter Set kanalübergreifend, so dass es über die XML-RPCSchnittstellefür alle Kanäle abgefragt werden kann, aber immer dieselben Parameter zurückliefert. ",
+      "en": "This method is used to determine the description of a parameter set. The address parameter is the address of a logical device (e.g. returned by listDevices). The parameter paramset_type is „MASTER“, „VALUES“ or „LINK“. With HomeMatic IP there is also the paramset_typeSERVICE for certain devices, which devices these are can be found in the respective DeviceDescription. This parameter set is also cross-channel, so that it can be queried for all channels via the XML-RPC interface, but always returns the same parameters."
     }
   },
   "getParamsetId": {
@@ -325,13 +345,15 @@
     ],
     "returns": "",
     "help": {
-      "de": "Diese Methode gibt die Id eines Parametersets zurück. Diese wird verwendet, um spezialisierte Konfigurationsdialoge (Easymode) den Parametersets zuzuordnen."
+      "de": "Diese Methode gibt die Id eines Parametersets zurück. Diese wird verwendet, um spezialisierte Konfigurationsdialoge (Easymode) den Parametersets zuzuordnen.",
+      "en": "This method returns the id of a parameter set. This is used to assign specialized configuration dialogs (easy mode) to the parameter sets."
     }
   },
   "getServiceMessages": {
     "params": [],
     "help": {
-      "de": "Diese Methode gibt eine Liste aller vorhandenen Servicemeldungen in Form eines Arrays zurück."
+      "de": "Diese Methode gibt eine Liste aller vorhandenen Servicemeldungen in Form eines Arrays zurück.",
+      "en": "This method returns a list of all existing service messages in the form of an array."
     }
   },
   "getValue": {
@@ -354,28 +376,32 @@
     ],
     "returns": "",
     "help": {
-      "de": "Mit dieser Methode wird ein einzelner Wert aus dem Parameter-Set „VALUES“ gelesen. Der Parameter address ist die Addresse eines logischen Gerätes. Der Parameter value_key ist der Name des zu lesenden Wertes. Die möglichen Werte für value_key ergeben sich aus der ParamsetDescription des entsprechenden Parameter-Sets „VALUES“.<br>Dem Parameter mode können folgende Werte übergeben werden:<ul><li>0 default: Keien Auswirkung, die Funktion verhält sicht wie der Aufruf ohne mode</li><li>1 UndefinedValues: Es wird ein Struktur zurückgeliefert die folgenden Aufbau hat:<br>„UNDEFINED“(Boolean) Flag ob der angeforderte Wert initial gesetzt wurde und somit wahrscheinlich nicht der Realität entspricht oder ob der Wert von eimen Gerät empfangen wurde, true = Wert wurde initial gesetzt und noch nicht verändert, false = der Wert wurde neu gesetzt<br>„VALUE“(ValueType) Wert des angeforderten Parameter.</li></ul><br>UndefindeValues kann nur für Parameter aus dem Parameterset „VALUES“ abgefragt werden die mit OPERATIONS = Read gekenzeichnet sind."
+      "de": "Mit dieser Methode wird ein einzelner Wert aus dem Parameter-Set „VALUES“ gelesen. Der Parameter address ist die Addresse eines logischen Gerätes. Der Parameter value_key ist der Name des zu lesenden Wertes. Die möglichen Werte für value_key ergeben sich aus der ParamsetDescription des entsprechenden Parameter-Sets „VALUES“.<br>Dem Parameter mode können folgende Werte übergeben werden:<ul><li>0 default: Keien Auswirkung, die Funktion verhält sicht wie der Aufruf ohne mode</li><li>1 UndefinedValues: Es wird ein Struktur zurückgeliefert die folgenden Aufbau hat:<br>„UNDEFINED“(Boolean) Flag ob der angeforderte Wert initial gesetzt wurde und somit wahrscheinlich nicht der Realität entspricht oder ob der Wert von eimen Gerät empfangen wurde, true = Wert wurde initial gesetzt und noch nicht verändert, false = der Wert wurde neu gesetzt<br>„VALUE“(ValueType) Wert des angeforderten Parameter.</li></ul><br>UndefindeValues kann nur für Parameter aus dem Parameterset „VALUES“ abgefragt werden die mit OPERATIONS = Read gekenzeichnet sind.",
+      "en": "This method reads a single value from the „VALUES“ parameter set. The address parameter is the address of a logical device. The parameter value_key is the name of the value to be read. The possible values ​​for value_key result from the ParamsetDescription of the corresponding parameter set „VALUES“. <br> The following values ​​can be transferred to the mode parameter: <ul> <li> 0 default: no effect, the function behaves like the call without mode </li> <li> 1 UndefinedValues: A structure is returned with the following structure: <br> „UNDEFINED“ (Boolean) Flag whether the requested value was initially set and therefore probably does not correspond to reality or whether the value received by a device, true = value was initially set and not yet changed, false = the value was newly set <br> „VALUE“ (ValueType) Value of the requested parameter. </li> </ul> <br> UndefindeValues can only be queried for parameters from the parameter set „VALUES“ which are marked with OPERATIONS = Read."
     }
   },
   "getVersion": {
     "params": [],
     "returns": "",
     "help": {
-      "de": "Liefert die Version des BidCoS-Service."
+      "de": "Liefert die Version des BidCoS-Service.",
+      "en": "Returns the version of the BidCoS service."
     }
   },
   "listBidcosInterfaces": {
     "params": [],
     "returns": "",
     "help": {
-      "de": "Diese Methode gibt eine Liste aller vorhandenen BidCoS-Interfaces in Form eines Arrays von Structs zurück"
+      "de": "Diese Methode gibt eine Liste aller vorhandenen BidCoS-Interfaces in Form eines Arrays von Structs zurück",
+      "en": "This method returns a list of all existing BidCoS interfaces in the form of an array of structs"
     }
   },
   "listDevices": {
     "params": [],
     "returns": "",
     "help": {
-      "de": "Diese Methode gibt alle dem Schnittstellenprozess bekannten Geräte in Form von Gerätebeschreibungen zurück."
+      "de": "Diese Methode gibt alle dem Schnittstellen Prozess bekannten Geräte in Form von Gerätebeschreibungen zurück.",
+      "en": "This method returns all devices known to the interface process in the form of device descriptions."
     }
   },
   "listReplaceableDevices": {
@@ -387,14 +413,16 @@
     ],
     "returns": "",
     "help": {
-      "de": "Mit dieser Funktionen kann eine Liste der Geräte angefordert werden die durch das übergebene Gerät ersetzt werden können.<br>Über den Parameter newDeviceAddress wird die Adresse des neuen Geräts übergeben für die die möglichen Tauschpartner ermittelt werden sollen."
+      "de": "Mit dieser Funktionen kann eine Liste der Geräte angefordert werden die durch das übergebene Gerät ersetzt werden können.<br>Über den Parameter newDeviceAddress wird die Adresse des neuen Geräts übergeben für die die möglichen Tauschpartner ermittelt werden sollen.",
+      "en": "With these functions, a list of devices can be requested that can be replaced by the transferred device. <br> The parameter newDeviceAddress is used to transfer the address of the new device for which the possible exchange partners are to be determined."
     }
   },
   "listTeams": {
     "params": [],
     "returns": "",
     "help": {
-      "de": "Diese Methode gibt alle dem Schnittstellenprozess bekannten Teams in Form von Gerätebeschreibungen zurück."
+      "de": "Diese Methode gibt alle dem Schnittstellen Prozess bekannten Teams in Form von Gerätebeschreibungen zurück.",
+      "en": "This method returns all teams known to the interface process in the form of device descriptions."
     }
   },
   "logLevel": {
@@ -419,7 +447,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Diese Methode gibt den aktuellen Log-Level zurück bzw. setzt diesen."
+      "de": "Diese Methode gibt den aktuellen Log-Level zurück bzw. setzt diesen.",
+      "en": "This method returns or sets the current log level."
     }
   },
   "ping": {
@@ -431,7 +460,8 @@
     ],
     "returns": "bool",
     "help": {
-      "de": "Beim Aufruf dieser Funktion wird ein Event (im Folgenden PONG genannt) erzeugt und an alle registrierten Logikschichten versandt. Da das PONG Event an alle registrierten Logikschichten (wie bei allen anderen Events auch) verschickt wird, muss in einer Logikschicht damit gerechnet werden, ein PONG Event zu empfangen ohne zuvor ping aufgerufen zu haben. Der Parameter callerId ist vom Aufrufer zu übergeben und wird als Wert des PONG Events verwendet. Der Inhalt des String ist unerheblich. Tritt während der Verarbeitung keine Exception auf, so wird von der Methode true zurückgegeben. Das PONG Event wird über die event Methode der Logikschicht ausgeliefert. Die Adresse ist dabei immer „CENTRAL“, der key lautet „PONG“ und der Wert ist die im ping Aufrufübergebene callerId"
+      "de": "Beim Aufruf dieser Funktion wird ein Event (im Folgenden PONG genannt) erzeugt und an alle registrierten Logikschichten versandt. Da das PONG Event an alle registrierten Logikschichten (wie bei allen anderen Events auch) verschickt wird, muss in einer Logikschicht damit gerechnet werden, ein PONG Event zu empfangen ohne zuvor ping aufgerufen zu haben. Der Parameter callerId ist vom Aufrufer zu übergeben und wird als Wert des PONG Events verwendet. Der Inhalt des String ist unerheblich. Tritt während der Verarbeitung keine Exception auf, so wird von der Methode true zurückgegeben. Das PONG Event wird über die event Methode der Logikschicht ausgeliefert. Die Adresse ist dabei immer „CENTRAL“, der key lautet „PONG“ und der Wert ist die im ping Aufrufübergebene callerId",
+      "en": "When this function is called, an event (hereinafter referred to as PONG) is generated and sent to all registered logic layers. Since the PONG event is sent to all registered logic layers (as with all other events as well), one must expect in a logic layer to receive a PONG event without first calling ping. The callerId parameter is to be passed by the caller and is used as the value of the PONG event. The content of the string is irrelevant. If no exception occurs during processing, the method returns true. The PONG event is delivered using the event method of the logic layer. The address is always „CENTRAL“, the key is „PONG“ and the value is the callerId passed in the ping call."
     }
   },
   "putParamset": {
@@ -451,7 +481,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Mit dieser Methode wird ein komplettes Parameter-Set für ein logisches Gerät geschrieben. Der Parameter address ist die Addresses eines logischen Gerätes. Der Parameter paramset_key ist „MASTER“, „VALUES“ oder die Adresse eines Kommunikationspartners für das entsprechende Link-Parameter-Set (siehe getLinkPeers). Der Parameter set ist das zu schreibende Parameter-Set. In set nicht vorhandene Member werden einfach nicht geschrieben und behalten ihren alten Wert.<br>Bei HomeMatic IP kann address auch die spezielle Adresse ALL_SMOKE_DETECTORS sein, welche für die Übertragung über Funk nicht eine Geräteadresse sondern die Multicast Adresse (0xF00005) für alle Rauchmelder verwendet und somit auch alle in Funkreichweite befindlichen Rauchmelder des Funknetzwerkes diesen ausführen sollten."
+      "de": "Mit dieser Methode wird ein komplettes Parameter-Set für ein logisches Gerät geschrieben. Der Parameter address ist die Addresses eines logischen Gerätes. Der Parameter paramset_key ist „MASTER“, „VALUES“ oder die Adresse eines Kommunikationspartners für das entsprechende Link-Parameter-Set (siehe getLinkPeers). Der Parameter set ist das zu schreibende Parameter-Set. In set nicht vorhandene Member werden einfach nicht geschrieben und behalten ihren alten Wert.<br>Bei HomeMatic IP kann address auch die spezielle Adresse ALL_SMOKE_DETECTORS sein, welche für die Übertragung über Funk nicht eine Geräteadresse sondern die Multicast Adresse (0xF00005) für alle Rauchmelder verwendet und somit auch alle in Funkreichweite befindlichen Rauchmelder des Funknetzwerkes diesen ausführen sollten.",
+      "en": "With this method, a complete parameter set is written for a logical device. The address parameter is the address of a logical device. The parameter paramset_key is „MASTER“, „VALUES“ or the address of a communication partner for the corresponding link parameter set (see getLinkPeers). The parameter set is the parameter set to be written. In set nonexistent members are simply not written and keep their old value. <br> With HomeMatic IP address can also be the special address ALL_SMOKE_DETECTORS, which uses a multicast address (0xF00005) for all smoke detectors instead of a device address for transmission via radio and thus all smoke detectors in the radio network that are within radio range should also run this."
     }
   },
   "removeLink": {
@@ -467,7 +498,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Diese Methode löscht eine Kommunikationsbeziehung zwischen zwei Geräten. Die Parameter sender und receiver bezeichnen die beiden Kommunikationspartner deren Kommunikationszuordnung gelöscht werden soll."
+      "de": "Diese Methode löscht eine Kommunikationsbeziehung zwischen zwei Geräten. Die Parameter sender und receiver bezeichnen die beiden Kommunikationspartner deren Kommunikationszuordnung gelöscht werden soll.",
+      "en": "This method deletes a communication relationship between two devices. The parameters sender and receiver designate the two communication partners whose communication assignment is to be deleted."
     }
   },
   "replaceDevice": {
@@ -483,7 +515,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Mit dieser Funktion kann ein altes gegen ein neues Gerät ausgetauscht werden. Alle direkten Geräteverknüpfungen und Konfigurationen werden auf das neue Gerät kopiert und das alte Gerät gelöscht. Die Beiden Geräte müssen hinsichtlich ihrer Funktionalität kompatibel sein. Mit der Methode listReplaceableDevice() kann eine List kompatibeler Geräte abgefragt werden. Das neue Gerät muss an dem Schnittstellenprozess angemeldet sein und darf noch nicht in Verknüpfungen verwendet werden. Über die Parameter oldDeviceAddress und newDeviceAddress wird der Methode die Adresse des alten Gerätes und des neuen Gerätes übergeben. Der Rückgabewert ist true wenn der Tausch erfolgreich war, ansonsten false"
+      "de": "Mit dieser Funktion kann ein altes gegen ein neues Gerät ausgetauscht werden. Alle direkten Geräteverknüpfungen und Konfigurationen werden auf das neue Gerät kopiert und das alte Gerät gelöscht. Die Beiden Geräte müssen hinsichtlich ihrer Funktionalität kompatibel sein. Mit der Methode listReplaceableDevice() kann eine List kompatibeler Geräte abgefragt werden. Das neue Gerät muss an dem Schnittstellenprozess angemeldet sein und darf noch nicht in Verknüpfungen verwendet werden. Über die Parameter oldDeviceAddress und newDeviceAddress wird der Methode die Adresse des alten Gerätes und des neuen Gerätes übergeben. Der Rückgabewert ist true wenn der Tausch erfolgreich war, ansonsten false.",
+      "en": "This function can be used to replace an old device with a new one. All direct device links and configurations are copied to the new device and the old device is deleted. The functionality of the two devices must be compatible. A list of compatible devices can be queried with the listReplaceableDevice () method. The new device must be logged on to the interface process and must not yet be used in links. The oldDeviceAddress and newDeviceAddress parameters are used to transfer the address of the old device and the new device to the method. The return value is true if the exchange was successful, otherwise false."
     }
   },
   "reportValueUsage": {
@@ -503,7 +536,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Diese Methode teilt dem Interfaceprozess in ref_counter mit, wie oft der Wert value_id des Kanals address innerhalb der Logikschicht (z.B. in Programmen) verwendet wird. Dadurch kann der Interfaceprozess die Verbindung mit der entsprechenden Komponente herstellen bzw. löschen. Diese Funktion sollte bei jeder Änderung aufgerufen werden.<br>Der Rückgabewert ist true, wenn die Aktion sofort durchgeführt wurde. Er ist false, wenn die entsprechende Komponente nicht erreicht werden konnte und vom Benutzer zunächst in den Config-Mode gebracht werden muss. Der Interfaceprozess hat dann aber die neue Einstellung übernommen und wird sie bei nächster Gelegenheit automatisch an die Komponente übertragen. In diesem Fall ist dann auch der Wert CONFIG_PENDING im Kanal MAINTENANCE der Komponente gesetzt."
+      "de": "Diese Methode teilt dem Interfaceprozess in ref_counter mit, wie oft der Wert value_id des Kanals address innerhalb der Logikschicht (z.B. in Programmen) verwendet wird. Dadurch kann der Interfaceprozess die Verbindung mit der entsprechenden Komponente herstellen bzw. löschen. Diese Funktion sollte bei jeder Änderung aufgerufen werden.<br>Der Rückgabewert ist true, wenn die Aktion sofort durchgeführt wurde. Er ist false, wenn die entsprechende Komponente nicht erreicht werden konnte und vom Benutzer zunächst in den Config-Mode gebracht werden muss. Der Interfaceprozess hat dann aber die neue Einstellung übernommen und wird sie bei nächster Gelegenheit automatisch an die Komponente übertragen. In diesem Fall ist dann auch der Wert CONFIG_PENDING im Kanal MAINTENANCE der Komponente gesetzt.",
+      "en": "This method tells the interface process in ref_counter how often the value_id value of the channel address is used within the logic layer (e.g. in programs). This enables the interface process to establish or delete the connection to the corresponding component. This function should be called whenever there is a change. <br> The return value is true if the action was carried out immediately. It is false if the corresponding component could not be reached and the user must first put it into Config mode. The interface process then accepted the new setting and will automatically transfer it to the component at the next opportunity. In this case, the CONFIG_PENDING value is also set in the MAINTENANCE channel of the component."
     }
   },
   "restoreConfigToDevice": {
@@ -515,21 +549,24 @@
     ],
     "returns": "",
     "help": {
-      "de": "Diese Methode überträgt alle zu einem Gerät in der CCU gespeicherten Konfigurationsdaten erneut an das Gerät."
+      "de": "Diese Methode überträgt alle zu einem Gerät in der CCU gespeicherten Konfigurationsdaten erneut an das Gerät.",
+      "en": "This method retransmits all configuration data stored for a device in the CCU to the device."
     }
   },
   "rssiInfo": {
     "params": [],
     "returns": "",
     "help": {
-      "de": "Gibt ein zweidimensionales assoziatives Array zurück, dessen Schlüssel die Geräteadressen sind. Die Felder des assoziativen Arrays sind Tupel, die die Empfangsfeldstärken zwischen beiden Schlüsselgeräten für beide Richtungen in dbm angeben. ein Wert von 65536 bedeutet, dass keine Informationen vorliegen.<ul><li>Rückgabewert[<Gerät 1>][<Gerät 2>][0] Empfangsfeldstärke an Gerät 1 für Sendungen von Gerät 2</li><li>Rückgabewert[<Gerät 1>][<Gerät 2>][1] Empfangsfeldstärke an Gerät 2 für Sendungen von Gerät 1</li></ul>"
+      "de": "Gibt ein zweidimensionales assoziatives Array zurück, dessen Schlüssel die Geräteadressen sind. Die Felder des assoziativen Arrays sind Tupel, die die Empfangsfeldstärken zwischen beiden Schlüsselgeräten für beide Richtungen in dbm angeben. ein Wert von 65536 bedeutet, dass keine Informationen vorliegen.<ul><li>Rückgabewert[<Gerät 1>][<Gerät 2>][0] Empfangsfeldstärke an Gerät 1 für Sendungen von Gerät 2</li><li>Rückgabewert[<Gerät 1>][<Gerät 2>][1] Empfangsfeldstärke an Gerät 2 für Sendungen von Gerät 1</li></ul>",
+      "en": "Returns a two-dimensional associative array whose key is the device addresses. The fields of the associative array are tuples that indicate the reception field strengths between the two key devices for both directions in dbm. a value of 65536 means that no information is available. <ul> <li> Return value [<Device 1>] [<Device 2>] [0] Receiving field strength on Device 1 for transmissions from Device 2 </li> <li> Return value [<Device 1>] [<Device 2>] [1] Receiving field strength on Device 2 for transmissions from Device 1 </li> </ul>"
     }
   },
   "searchDevices": {
     "params": [],
     "returns": "",
     "help": {
-      "de": "Diese Methode durchsucht den Bus nach neuen Geräten und gibt die Anzahl gefundener Geräte zurück. Die neu gefundenen Geräte werden mit newDevices der Logikschicht gemeldet."
+      "de": "Diese Methode durchsucht den Bus nach neuen Geräten und gibt die Anzahl gefundener Geräte zurück. Die neu gefundenen Geräte werden mit newDevices der Logikschicht gemeldet.",
+      "en": "This method searches the bus for new devices and returns the number of devices found. The newly found devices are reported to the logic layer with newDevices."
     }
   },
   "setBidcosInterface": {
@@ -549,7 +586,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Diese Methode setzt das für die Kommunikation mit dem durch device_address spezifizierten Gerät verwendete Bidcos-Interface. Die Seriennummer des in Zukunft für die Kommunikation mit diesem Gerät zu verwendenden Interfaces wird in interface_address übergeben. Ist der Parameter roaming gesetzt, so wird die Interfacezuordnung für das Gerät automatisch in Abhängigkeit von der Empfangsfeldstärke angepasst. Das ist für nicht ortsfeste Geräte wie Fernbedienungen sinnvoll."
+      "de": "Diese Methode setzt das für die Kommunikation mit dem durch device_address spezifizierten Gerät verwendete Bidcos-Interface. Die Seriennummer des in Zukunft für die Kommunikation mit diesem Gerät zu verwendenden Interfaces wird in interface_address übergeben. Ist der Parameter roaming gesetzt, so wird die Interfacezuordnung für das Gerät automatisch in Abhängigkeit von der Empfangsfeldstärke angepasst. Das ist für nicht ortsfeste Geräte wie Fernbedienungen sinnvoll.",
+      "en": "This method sets the Bidcos interface used for communication with the device specified by device_address. The serial number of the interface to be used for communication with this device in the future is transferred in interface_address. If the roaming parameter is set, the interface assignment for the device is automatically adjusted depending on the reception field strength. This is useful for non-stationary devices such as remote controls."
     }
   },
   "setInstallMode": {
@@ -575,7 +613,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Diese Methode aktiviert und deaktiviert den Installations-Modus, in dem neue Geräte an der HomeMatic-CCU angemeldet werden können.<br>Der Parameter on bestimmt, ob der Installations-Modus aktiviert oder deaktiviert werden soll.<br>Der Parameter time bestimmt die Zeit in Sekunden die der Installations-Modus aktiviert ist<br>Der Parameter mode bestimmt die Art des Installations-Modus:<ul><li>1 = Normaler Installations-Modus</li><li>2 = Während des Anlernens werden in den Parametersets „MASTER“ default Parameter gesetzt und alle bestehenden Verknüpfungen werden gelöscht.</li></ul>"
+      "de": "Diese Methode aktiviert und deaktiviert den Installations-Modus, in dem neue Geräte an der HomeMatic-CCU angemeldet werden können.<br>Der Parameter on bestimmt, ob der Installations-Modus aktiviert oder deaktiviert werden soll.<br>Der Parameter time bestimmt die Zeit in Sekunden die der Installations-Modus aktiviert ist<br>Der Parameter mode bestimmt die Art des Installations-Modus:<ul><li>1 = Normaler Installations-Modus</li><li>2 = Während des Anlernens werden in den Parametersets „MASTER“ default Parameter gesetzt und alle bestehenden Verknüpfungen werden gelöscht.</li></ul>",
+      "en": "This method activates and deactivates the installation mode, in which new devices can be logged on to the HomeMatic-CCU. <br> The parameter on determines whether the installation mode should be activated or deactivated. <br> The parameter time determines the Time in seconds that the installation mode is activated <br> The mode parameter determines the type of installation mode: <ul> <li> 1 = Normal installation mode </li> <li> 2 = During teaching, in the parameter sets „MASTER“ set default parameters and all existing links are deleted. </li> </ul>"
     }
   },
   "setInterfaceClock": {
@@ -591,7 +630,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Setzt die UTC Zeit für alle Interfaces, die dies benötigen.<br>Mit dem Parameter utcSeconds werden die Sekunden seti 01.01.1970 00:00 Uhr (UTC) gesetzt.<br>Über den Parameter offsetMinutes wird der Offset in Minuten entsprechend der jeweiligen Zeitzone übergeben.<br>Der Rückgabewert der Methode ist false im Fehlerfall, ansonsten true."
+      "de": "Setzt die UTC Zeit für alle Interfaces, die dies benötigen.<br>Mit dem Parameter utcSeconds werden die Sekunden seti 01.01.1970 00:00 Uhr (UTC) gesetzt.<br>Über den Parameter offsetMinutes wird der Offset in Minuten entsprechend der jeweiligen Zeitzone übergeben.<br>Der Rückgabewert der Methode ist false im Fehlerfall, ansonsten true.",
+      "en": "Sets the UTC time for all interfaces that need this. <br> With the parameter utcSeconds the seconds seti 01.01.1970 00:00 o'clock (UTC) are set. <br> With the parameter offsetMinutes the offset in minutes is corresponding to the respective Transfer time zone. <br> The return value of the method is false in the event of an error, otherwise true."
     }
   },
   "setLinkInfo": {
@@ -615,7 +655,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Diese Methode ändert die beschreibenden Texte einer Kommunikationsbeziehung. Die Spezifikation Parameter sender und receiver bezeichnen die beiden zu verknüpfenden Partner. Die Parameter name und description beschreiben die Verknüpfung textuell."
+      "de": "Diese Methode ändert die beschreibenden Texte einer Kommunikationsbeziehung. Die Spezifikation Parameter sender und receiver bezeichnen die beiden zu verknüpfenden Partner. Die Parameter name und description beschreiben die Verknüpfung textuell.",
+      "en": "This method changes the descriptive texts of a communication relationship. The specification parameters sender and receiver designate the two partners to be linked. The parameters name and description describe the link textually."
     }
   },
   "setMetadata": {
@@ -635,7 +676,8 @@
     ],
     "returns": "void",
     "help": {
-      "de": "Diese Methode setzt ein Metadatum zu einem Objekt.<br><b>object_id</b> ist die Id des Metadaten-Objekts. Üblicherweise ist dies die Seriennummer eines Gerätes oder Kanals. Durch Übergabe einer beliebigen Id können aber auch eigene Metadaten-Objekte angelegt werden. <br><b>data_id</b> ist die Id des zu setzenden Metadatums. Diese Id kann frei gewählt werden. <br><b>value</b> ist eine beliebige Variable. Diese wird gespeichert und kann später mittels getMetadata() und getAllMetadata() wieder abgefragt werden."
+      "de": "Diese Methode setzt ein Metadatum zu einem Objekt.<br><b>object_id</b> ist die Id des Metadaten-Objekts. Üblicherweise ist dies die Seriennummer eines Gerätes oder Kanals. Durch Übergabe einer beliebigen Id können aber auch eigene Metadaten-Objekte angelegt werden. <br><b>data_id</b> ist die Id des zu setzenden Metadatums. Diese Id kann frei gewählt werden. <br><b>value</b> ist eine beliebige Variable. Diese wird gespeichert und kann später mittels getMetadata() und getAllMetadata() wieder abgefragt werden.",
+      "en": "This method sets a metadata for an object. <br> <b> object_id </b> is the id of the metadata object. This is usually the serial number of a device or channel. By passing any ID you can also create your own metadata objects. <br> <b> data_id </b> is the id of the metadata to be set. This ID can be chosen freely. <br> <b> value </b> is any variable. This is saved and can be queried later using getMetadata () and getAllMetadata ()."
     }
   },
   "setRFLGWInfoLED": {
@@ -656,7 +698,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Steuert die LED von verbundenen LAN Gateways (HMLGW2) an."
+      "de": "Steuert die LED von verbundenen LAN Gateways (HMLGW2) an.",
+      "en": "Controls the LED of connected LAN gateways (HMLGW2)."
     }
   },
   "setTeam": {
@@ -672,7 +715,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Diese Methode fügt den Kanal channel_address zum Team team_address hinzu. Bei team_address==““ wird der Kanal channel_address seinem eigenen Team zugeordnet. Dabei muss team_address entweder leer sein (““) oder eine Seriennummer eines existierenden Teams enthalten. Teams werden dabei je nach Bedarf erzeugt und gelöscht."
+      "de": "Diese Methode fügt den Kanal channel_address zum Team team_address hinzu. Bei team_address==““ wird der Kanal channel_address seinem eigenen Team zugeordnet. Dabei muss team_address entweder leer sein (““) oder eine Seriennummer eines existierenden Teams enthalten. Teams werden dabei je nach Bedarf erzeugt und gelöscht.",
+      "en": "This method adds the channel channel_address to team team_address. With team_address == ““ the channel channel_address is assigned to its own team. Team_address must either be empty (““) or contain a serial number of an existing team. Teams are created and deleted as required."
     }
   },
   "setTempKey": {
@@ -684,7 +728,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Diese Methode ändert den von der CCU verwendeten temporären AES-Schlüssel. Der temporäre AES-Schlüssel wird verwendet, um ein Gerät anzulernen, in dem ein anderer Schlüssel gespeichert ist als der Schlüssel der CCU."
+      "de": "Diese Methode ändert den von der CCU verwendeten temporären AES-Schlüssel. Der temporäre AES-Schlüssel wird verwendet, um ein Gerät anzulernen, in dem ein anderer Schlüssel gespeichert ist als der Schlüssel der CCU.",
+      "en": "This method changes the temporary AES key used by the CCU. The temporary AES key is used to teach a device in which a key other than the key of the CCU is stored."
     }
   },
   "setValue": {
@@ -704,7 +749,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Mit dieser Methode wird ein einzelner Wert aus dem Parameter-Set „VALUES“ geschrieben. Der Parameter address ist die Addresse eines logischen Gerätes. Der Parameter value_key ist der Name des zu schreibenden Wertes. Die möglichen Werte für value_key ergeben sich aus der ParamsetDescription des entsprechenden Parameter-Sets „VALUES“. Der Parameter value ist der zu schreibende Wert.<br>Bei HomeMatic IP kann address auch die spezielle Adresse ALL_SMOKE_DETECTORS sein, welche für die Übertragung über Funk nicht eine Geräteadresse sondern die Multicast Adresse (0xF00005) für alle Rauchmelder verwendet und somit auch alle in Funkreichweite befindlichen Rauchmelder des Funknetzwerkes diesen ausführen sollten."
+      "de": "Mit dieser Methode wird ein einzelner Wert aus dem Parameter-Set „VALUES“ geschrieben. Der Parameter address ist die Addresse eines logischen Gerätes. Der Parameter value_key ist der Name des zu schreibenden Wertes. Die möglichen Werte für value_key ergeben sich aus der ParamsetDescription des entsprechenden Parameter-Sets „VALUES“. Der Parameter value ist der zu schreibende Wert.<br>Bei HomeMatic IP kann address auch die spezielle Adresse ALL_SMOKE_DETECTORS sein, welche für die Übertragung über Funk nicht eine Geräteadresse sondern die Multicast Adresse (0xF00005) für alle Rauchmelder verwendet und somit auch alle in Funkreichweite befindlichen Rauchmelder des Funknetzwerkes diesen ausführen sollten.",
+      "en": "This method writes a single value from the „VALUES“ parameter set. The address parameter is the address of a logical device. The parameter value_key is the name of the value to be written. The possible values for value_key result from the ParamsetDescription of the corresponding parameter set „VALUES“. The parameter value is the value to be written. <br> With HomeMatic IP address can also be the special address ALL_SMOKE_DETECTORS, which uses a multicast address (0xF00005) for all smoke detectors instead of a device address for radio transmission and therefore also all within radio range located smoke detectors of the radio network should run this."
     }
   },
   "system.listMethods": {
@@ -727,7 +773,8 @@
     ],
     "returns": "",
     "help": {
-      "de": "Diese Methode führt ein Firmware-Update für das in device angegebene Gerät durch. Das Gerät wird durch seine Seriennummer spezifiziert. Der Rückgabewert gibt an, ob das Firmware-Update erfolgreich war."
+      "de": "Diese Methode führt ein Firmware-Update für das in device angegebene Gerät durch. Das Gerät wird durch seine Seriennummer spezifiziert. Der Rückgabewert gibt an, ob das Firmware-Update erfolgreich war.",
+      "en": "This method carries out a firmware update for the device specified in device. The device is specified by its serial number. The return value indicates whether the firmware update was successful."
     }
   },
   "installFirmware": {
@@ -739,7 +786,8 @@
     ],
     "returns": "boolean",
     "help": {
-      "de": "Mit dieser Methode teilt die Logikschicht dem Schnittstellenprozess mit, dass ein Gerät die über Background OTAU aufgespielte Firmware aktiveren soll."
+      "de": "Mit dieser Methode teilt die Logikschicht dem Schnittstellen Prozess mit, dass ein Gerät die über Background OTAU aufgespielte Firmware aktiveren soll.",
+      "en": "With this method, the logic layer informs the interface process that a device should activate the firmware installed via Background OTAU."
     }
   },
   "setInstallModeWithWhitelist": {
@@ -759,7 +807,8 @@
     ],
     "returns": "void",
     "help": {
-      "de": "Mit dieser Methode teilt die Logikschicht dem Schnittstellenprozess mit, dass ein oder mehrere Geräte über die Whitelist für die Inkludierung freigeschaltet werden sollen für den angegebenen Zeitraum. <ul><li>on, gibt an ob die Install Mode aktiviert oder deaktiviert werden soll. Wenn der Wert „false“ ist haben die weiteren Parameter keine Auswirkung auf die Aktion. </li><li> time, gibt die Zeit in Sekunden an, nach der der Install Mode deaktiviert werden soll. Der Defaultwert ist 30 Sekunden. </li><li>whiteListValues, gibt die Geräte an, die inkludiert werden sollen, dies ist ein Array aus RPC Structs, welche folgende Daten haben: <ul><li> ADDRESS, gibt die SGTIN bzw. ID des Gerätes an, das inkludiert werden soll. </li><li> KEY_MODE, gibt den Typen des Keys an, der für die Inklusion verwendet werden soll. Dieser Wert ist ein String mit folgenden unterstützten Werten: <ul><li>LOCAL </li><li>MASTER und DEFAULT werden zur Zeit vom crRFD noch nicht unterstützt</li></ul> </li><li> KEY, gibt den zu verwendenden Geräteschlüssel an, der bei der Inklusion verwendet werden soll. Dieser Wert ist der Hexstring des 16 Byte langen Schlüssels </li></ul></li></ul> Wenn der KEY_MODE oder KEY nicht angegeben ist wird der Master Key vom Key-Server für die Inklusion versucht zu nutzten. Die Whitelist wird beim Ablauf des Install Mode zurückgesetzt."
+      "de": "Mit dieser Methode teilt die Logikschicht dem Schnittstellenprozess mit, dass ein oder mehrere Geräte über die Whitelist für die Inkludierung freigeschaltet werden sollen für den angegebenen Zeitraum. <ul><li>on, gibt an ob die Install Mode aktiviert oder deaktiviert werden soll. Wenn der Wert „false“ ist haben die weiteren Parameter keine Auswirkung auf die Aktion. </li><li> time, gibt die Zeit in Sekunden an, nach der der Install Mode deaktiviert werden soll. Der Defaultwert ist 30 Sekunden. </li><li>whiteListValues, gibt die Geräte an, die inkludiert werden sollen, dies ist ein Array aus RPC Structs, welche folgende Daten haben: <ul><li> ADDRESS, gibt die SGTIN bzw. ID des Gerätes an, das inkludiert werden soll. </li><li> KEY_MODE, gibt den Typen des Keys an, der für die Inklusion verwendet werden soll. Dieser Wert ist ein String mit folgenden unterstützten Werten: <ul><li>LOCAL </li><li>MASTER und DEFAULT werden zur Zeit vom crRFD noch nicht unterstützt</li></ul> </li><li> KEY, gibt den zu verwendenden Geräteschlüssel an, der bei der Inklusion verwendet werden soll. Dieser Wert ist der Hexstring des 16 Byte langen Schlüssels </li></ul></li></ul> Wenn der KEY_MODE oder KEY nicht angegeben ist wird der Master Key vom Key-Server für die Inklusion versucht zu nutzten. Die Whitelist wird beim Ablauf des Install Mode zurückgesetzt.",
+      "en": "With this method, the logic layer informs the interface process that one or more devices should be enabled for inclusion via the whitelist for the specified period. <ul> <li> on, specifies whether the Install Mode should be activated or deactivated. If the value is „false“, the other parameters have no effect on the action. </li> <li> time, specifies the time in seconds after which the install mode should be deactivated. The default value is 30 seconds. </li> <li> whiteListValues, specifies the devices to be included, this is an array of RPC structs which have the following data: <ul> <li> ADDRESS, specifies the SGTIN or ID of the device, that should be included. </li> <li> KEY_MODE, specifies the type of key to be used for inclusion. This value is a string with the following supported values: <ul> <li> LOCAL </li> <li> MASTER and DEFAULT are currently not yet supported by the crRFD </li> </ul> </li> <li> KEY, specifies the device key to be used for inclusion. This value is the hex string of the 16-byte key </li></ul></li> </ul> If the KEY_MODE or KEY is not specified, the master server tries to use the master key for inclusion. The whitelist is reset when the Install Mode expires."
     }
   }
 }

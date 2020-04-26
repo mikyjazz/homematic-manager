@@ -1,108 +1,143 @@
 {
   "Homematic Manager Address": {
-      "de": "Homematic Manager Adresse"
+      "de": "Homematic Manager Adresse",
+      "en": "Homematic Manager Address"
   },
   "CCU Address": {
-    "de": "CCU Adresse"
+    "de": "CCU Adresse",
+    "en": "CCU Address"
   },
   "Select": {
-    "de": "Auswählen"
+    "de": "Auswählen",
+    "en": "Select"
   },
   "Save & Restart": {
-    "de": "Speichern und Neustarten"
+    "de": "Speichern und Neustarten",
+    "en": "Save & Restart"
   },
   "Error": {
-    "de": "Fehler"
+    "de": "Fehler",
+    "en": "Error"
   },
   "Devices": {
-    "de": "Geräte"
+    "de": "Geräte",
+    "en": "Devices"
   },
   "Device": {
-    "de": "Gerät"
+    "de": "Gerät",
+    "en": "Device"
   },
   "introduced": {
-    "de": "gefunden"
+    "de": "gefunden",
+    "en": "introduced"
   },
   "New": {
-    "de": "Neue"
+    "de": "Neue",
+    "en": "New"
   },
   "Events": {
-    "de": "Ereignisse"
+    "de": "Ereignisse",
+    "en": "Events"
   },
   "Cancel": {
-    "de": "Abbrechen"
+    "de": "Abbrechen",
+    "en": "Cancel"
   },
   "OK": {
-    "de": "OK"
+    "de": "OK",
+    "en": "OK"
   },
   "Delete": {
-    "de": "Löschen"
+    "de": "Löschen",
+    "en": "Delete"
   },
   "Save": {
-    "de": "Speichern"
+    "de": "Speichern",
+    "en": "Save"
   },
   "Create and edit": {
-    "de": "Anlegen und Bearbeiten"
+    "de": "Anlegen und Bearbeiten",
+    "en": "Create and edit"
   },
   "Create": {
-    "de": "Anlegen"
+    "de": "Anlegen",
+    "en": "Create"
   },
   "Please choose one or more channels": {
-    "de": "Bitte einen oder mehrere Kanäle auswählen"
+    "de": "Bitte einen oder mehrere Kanäle auswählen",
+    "en": "Please choose one or more channels"
   },
   "Refresh": {
-    "de": "Aktualisieren"
+    "de": "Aktualisieren",
+    "en": "Refresh"
   },
   "Delete device": {
-    "de": "Gerät löschen"
+    "de": "Gerät löschen",
+    "en": "Delete device"
   },
   "Rename device": {
-    "de": "Gerät umbenennen"
+    "de": "Gerät umbenennen",
+    "en": "Rename device"
   },
   "Pair devices": {
-    "de": "Geräte anlernen"
+    "de": "Geräte anlernen",
+    "en": "Pair devices"
   },
   "Links": {
-    "de": "Verknüpfungen"
+    "de": "Verknüpfungen",
+    "en": "Links"
   },
   "Delete link": {
-    "de": "Verknüpfung löschen"
+    "de": "Verknüpfung löschen",
+    "en": "Delete link"
   },
   "Edit link": {
-    "de": "Verknüpfung bearbeiten"
+    "de": "Verknüpfung bearbeiten",
+    "en": "Edit link"
   },
   "Test link": {
-    "de": "Verknüpfung testen"
+    "de": "Verknüpfung testen",
+    "en": "Test link"
   },
   "Create link": {
-    "de": "Verknüpfung anlegen"
+    "de": "Verknüpfung anlegen",
+    "en": "Create link"
   },
   "RSSI": {
-    "de": "Funk"
+    "de": "Funk",
+    "en": "Wireless"
   },
   "RPC Console": {
-    "de": "RPC Konsole"
+    "de": "RPC Konsole",
+    "en": "RPC Console"
   },
   "Service messages": {
-    "de": "Servicemeldungen"
+    "de": "Servicemeldungen",
+    "en": "Service messages"
   },
   "Send request": {
-    "de": "Befehl senden"
+    "de": "Befehl senden",
+    "en": "Send request"
   },
   "Parameters": {
-    "de": "Parameter"
+    "de": "Parameter",
+    "en": "Parameters"
   },
   "Response": {
-    "de": "Antwort"
+    "de": "Antwort",
+    "en": "Response"
   },
   "Help": {
-    "de": "Hilfe"
+    "de": "Hilfe",
+    "en": "Help"
   },
   "Settings": {
-    "de": "Einstellungen"
+    "de": "Einstellungen",
+    "en": "Settings"
   },
   "Please choose one or more links": {
-    "de": "mehrere Verknüpfungen bearbeiten"
+    "de": "mehrere Verknüpfungen bearbeiten",
+    "en": "Please choose one or more links"
   },
   "Kanäle überschreiben": {
     "de": "Kanäle überschreiben",
@@ -145,36 +180,44 @@
     "en": "Delete from interface process only"
   },
   "Disconnected": {
-    "de": "Verbindung unterbrochen"
+    "de": "Verbindung unterbrochen",
+    "en": "Disconnected"
   },
   "Which device do you want to replace?": {
-    "de": "Welches Gerät wollen sie ersetzen?"
+    "de": "Welches Gerät wollen sie ersetzen?",
+    "en": "Which device do you want to replace?"
   },
   "Gerät löschen": {
     "de": "Gerät löschen",
     "en": "Delete device"
   },
   "Acknowledge service messages": {
-    "de": "Servicemeldung bestätigen"
+    "de": "Servicemeldung bestätigen",
+    "en": "Acknowledge service messages"
   },
   "Acknowledge all service messages": {
-    "de": "Alle Servicemeldungen bestätigen"
+    "de": "Alle Servicemeldungen bestätigen",
+    "en": "Acknowledge all service messages"
   },
   "Interfaces": {
-    "de": "Interfaces"
+    "de": "Interfaces",
+    "en": "Interfaces"
   },
   "Edit device": {
-    "de": "Gerät bearbeiten"
+    "de": "Gerät bearbeiten",
+    "en": "Edit device"
   },
   "undefined": {
-    "de": "undefined"
+    "de": "undefined",
+    "en": "undefined"
   },
   "Please select method": {
-    "de": "Bitte eine Methode auswählen"
+    "de": "Bitte eine Methode auswählen",
+    "en": "Please select a method"
   },
   "saveAsNewTemplate": {
     "de": "als neue Profilvorlage speichern",
-    "en": "saveAsNewTemplate"
+    "en": "Save As New Template"
   },
   "Replace device": {
     "de": "Gerät tauschen",
@@ -182,15 +225,15 @@
   },
   "Update firmware": {
     "de": "Firmware aktualisieren",
-    "en": "Update firmware"
+    "en": "Update Firmware"
   },
   "clearConfigCache": {
     "de": "clearConfigCache",
-    "en": "clearConfigCache"
+    "en": "Clear Config Cache"
   },
   "restoreConfigToDevice": {
     "de": "restoreConfigToDevice",
-    "en": "restoreConfigToDevice"
+    "en": "Restore Config To Device"
   },
   "Rename": {
     "de": "Umbenennen",
@@ -202,7 +245,7 @@
   },
   "updateFirmware": {
     "de": "Firmware aktualisieren",
-    "en": "updateFirmware"
+    "en": "Update Firmware"
   },
   "Replace": {
     "de": "Gerät tauschen",
@@ -222,11 +265,11 @@
   },
   "putParamset": {
     "de": "Parameter übernehmen",
-    "en": "putParamset"
+    "en": "Apply parameters"
   },
   "putParamsetClose": {
     "de": "Parameter übernehmen und schließen",
-    "en": "putParamset"
+    "en": "Apply parameters and close"
   },
   "New service message": {
     "de": "Neue Servicemeldung",
@@ -238,7 +281,7 @@
   },
   "about Homematic Manager": {
     "de": "Über Homematic Manager",
-    "en": "about Homematic Manager"
+    "en": "About Homematic Manager"
   },
   "Loading Homematic Manager...": {
     "de": "Lade Homematic Manager...",
@@ -251,5 +294,133 @@
   "Uncheck all": {
     "de": "Auswahl entfernen",
     "en": "Uncheck all"
+  },
+  "via Key Server": {
+    "de": "via Key Server",
+    "en": "via Key Server"
+  },
+  "Lokal": {
+    "de": "Lokal",
+    "en": "Local"
+  },
+  "Use TLS": {
+    "de": "Use TLS",
+    "en": "Use TLS"
+  },
+  "Use Auth": {
+    "de": "Use Auth",
+    "en": "Use Auth"
+  },
+  "Auth User": {
+    "de": "Auth User",
+    "en": "Auth User"
+  },
+  "Auth Pass": {
+    "de": "Auth Pass",
+    "en": "Auth Pass"
+  },
+  "Hide name columns": {
+    "de": "Hide name columns",
+    "en": "Hide name columns"
+  },
+  "RPC Delay (ms)": {
+    "de": "RPC Delay (ms)",
+    "en": "RPC Delay (ms)"
+  },
+  "RPC Log Folder": {
+    "de": "RPC Log Folder",
+    "en": "RPC Log Folder"
+  },
+  "Clear Cache": {
+    "de": "Clear Cache",
+    "en": "Clear Cache"
+  },
+  "Show unhandled exceptions": {
+    "de": "Show unhandled exceptions",
+    "en": "Show unhandled exceptions"
+  },
+  "SERVICE Paramset": {
+    "de": "SERVICE Paramset",
+    "en": "SERVICE Paramset"
+  },
+  "Dokumentation": {
+    "de": "Dokumentation",
+    "en": "Documentation"
+  },
+  "Zeit verbleibend:": {
+    "de": "Zeit verbleibend:",
+    "en": "Time remaining:"
+  },
+  "Übernehmen": {
+    "de": "Übernehmen",
+    "en": "Accept"
+  },
+  "Beschreibung:": {
+    "de": "Beschreibung:",
+    "en": "Description:"
+  },
+  "Kanalparameter": {
+    "de": "Kanalparameter",
+    "en": "Channel parameters"
+  },
+  "Anlernmodus": {
+    "de": "Anlernmodus",
+    "en": "Pairing mode"
+  },
+  "Anlernmodus aktivieren": {
+    "de": "Anlernmodus aktivieren",
+    "en": "Activate Pairing Mode"
+  },
+  "Dauer:": {
+    "de": "Dauer:",
+    "en": "Duration:"
+  },
+  "Anlernen über Seriennummer ": {
+    "de": "Anlernen über Seriennummer",
+    "en": "Teaching via serial number"
+  },
+  "(nicht bei allen Geräten möglich)": {
+    "de": "(nicht bei allen Geräten möglich)",
+    "en": "(not possible with all devices)"
+  },
+  "Seriennummer:": {
+    "de": "Seriennummer:",
+    "en": "Serial number:"
+  },
+  "Anlernen": {
+    "de": "Anlernen",
+    "en": "Teaching"
+  },
+  "Gerät anlernen": {
+    "de": "Gerät anlernen",
+    "en": "Teach device"
+  },
+  "Direktverknüpfung anlegen": {
+    "de": "Direktverknüpfung anlegen",
+    "en": "Create direct link"
+  },
+  "Anlernen über Key Server": {
+    "de": "Anlernen über Key Server",
+    "en": "Teaching-in via key server"
+  },
+  "Lokales Anlernen": {
+    "de": "Lokales Anlernen",
+    "en": "Local learning"
+  },
+  "Direktverknüpfung bearbeiten": {
+    "de": "Direktverknüpfung bearbeiten",
+    "en": "Edit direct link"
+  },
+  "Anlernmodus aktiv": {
+    "de": "Anlernmodus aktiv",
+    "en": "Teach mode active"
+  },
+  "Direktverknüpfung löschen": {
+    "de": "Direktverknüpfung löschen",
+    "en": "Delete direct link"
+  },
+  "Language": {
+    "de": "Sprache",
+    "en": "Language"
   }
 }

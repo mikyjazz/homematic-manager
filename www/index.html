@@ -48,7 +48,7 @@
             </div>
             <div style="clear: both;">
                 <div style="padding: 4px; margin-top: 12px; width: 98%;">
-                    <h3>Dokumentation</h3>
+                    <h3  class="translate">Dokumentation</h3>
                     <h3 id="console-rpc-method-heading"></h3>
                     <div id="console-rpc-method-help"></div>
                 </div>
@@ -100,26 +100,26 @@
         <input type="hidden" id="edit-paramset-address" value=""/>
         <input type="hidden" id="edit-paramset-paramset" value=""/>
     </div>
-    <div id="dialog-linkparamset" title="Direktverknüpfung bearbeiten">
+    <div id="dialog-linkparamset" class="translateT" title="Direktverknüpfung bearbeiten">
         <select id="select-linkparamset-multiselect" multiple></select>
         <div id="div-edit-link" style="padding-top: 4px; padding-bottom: 14px">
             <div style="display:inline-block">
                 <b>Name:</b> <input id="edit-link-input-name" type="text" value="" size="32"/>
-                <b>Beschreibung: </b><input id="edit-link-input-description" type="text" value="" size="32"/>
+                <b class="translate">Beschreibung:</b><input id="edit-link-input-description" type="text" value="" size="32"/>
             </div>
-            <button id="save-link-info" style="float:right;">Übernehmen</button>
+            <button id="save-link-info" style="float:right;" class="translate">Übernehmen</button>
         </div>
 
         <div style="font-weight: bold; padding-bottom: 12px;">
             <span><a id="toggle-link-sender" style="margin-top: -2px; cursor:pointer; display:inline-block; border: 1px solid lightgray"><span class="ui-icon ui-icon-plus"></span></a> Sender: <span id="link-sender"></span></span>
-            <button class="paramset link" data-paramset="MASTER" id="link-sender-params" style="float:right;">Kanalparameter</button>
+            <button class="paramset link translate" data-paramset="MASTER" id="link-sender-params" style="float:right;">Kanalparameter</button>
         </div>
         <div id="div-link-sender" style="display: none">
         <table id="table-linkparamset1"></table>
         </div>
         <div style="font-weight: bold; padding-top: 6px; padding-bottom: 10px;">
             <span><a id="toggle-link-receiver" style="margin-top: -2px; cursor:pointer; display:inline-block; border: 1px solid lightgray"><span class="ui-icon ui-icon-minus"></span></a></span> <span>Receiver:  <span id="link-receiver"></span></span>
-            <button class="paramset link" data-paramset="MASTER" id="link-receiver-params" style="float:right;">Kanalparameter</button>
+            <button class="paramset link translate" data-paramset="MASTER" id="link-receiver-params" style="float:right;">Kanalparameter</button>
         </div>
         <div id="div-link-receiver">
             <p>
@@ -134,7 +134,7 @@
         <input type="hidden" id="edit-linkparamset-receiver" value=""/>
 
     </div>
-    <div id="dialog-remove-link" title="Direktverknüpfung löschen">
+    <div id="dialog-remove-link" class="translateT" title="Direktverknüpfung löschen">
         <table id="table-delete-link"></table>
         <input type="hidden" id="delete-link-sender" value=""/>
         <input type="hidden" id="delete-link-receiver" value=""/>
@@ -152,7 +152,7 @@
         <input type="hidden" id="rename-rowid" value=""/>
         <input type="hidden" id="rename-gridid" value=""/>
     </div>
-    <div id="dialog-add-device" title="Gerät anlernen">
+    <div id="dialog-add-device" class="translateT" title="Gerät anlernen">
         <select id="add-device-mode">
             <option value="1" selected="selected" class="translate">Normaler Anlernmodus</option>
             <option value="2" class="translate">Default-Parameter in Paramset MASTER schreiben, bestehende Verknüpfungen löschen</option>
@@ -161,30 +161,30 @@
         <table>
             <tr>
                 <td colspan="3">
-                    <h3>Anlernmodus</h3>
+                    <h3 class="translate">Anlernmodus</h3>
                 </td>
             </tr>
             <tr>
-                <td>Dauer:</td>
+                <td class="translate">Dauer:</td>
                 <td><input type="number" id="add-device-time" value="60"/>s</td>
-                <td><input type="button" id="add-device-time-start" value="Anlernmodus aktivieren"/></td>
+                <td><input type="button" id="add-device-time-start"  class="translateV" value="Anlernmodus aktivieren"/></td>
             </tr>
             <tr>
                 <td colspan="3">
-                    <h3>Anlernen über Seriennummer <span style="font-weight: normal; font-size: 11px;">(nicht bei allen Geräten möglich)</span></h3>
+                    <h3><span  class="translate">Anlernen über Seriennummer </span>&nbsp;<span style="font-weight: normal; font-size: 11px;" class="translate">(nicht bei allen Geräten möglich)</span></h3>
                 </td>
             </tr>
             <tr>
-                <td>Seriennummer:</td>
+                <td class="translate">Seriennummer:</td>
                 <td><input type="text" id="add-device-address" value=""/></td>
-                <td><input type="button" id="add-device-address-start" value="Anlernen"/></td>
+                <td><input type="button" id="add-device-address-start" class="translateV" value="Anlernen"/></td>
             </tr>
 
         </table>
 
 
     </div>
-    <div id="dialog-add-device-ip" title="Gerät anlernen">
+    <div id="dialog-add-device-ip" class="translateT" title="Gerät anlernen">
         <select id="add-device-ip-mode">
             <option value="keyserver" selected="selected" class="translate">via Key Server</option>
             <option value="local" class="translate">Lokal</option>
@@ -193,12 +193,12 @@
         <table>
             <tr class="add-device-keyserver">
                 <td colspan="3">
-                    <h3>Anlernen über Key Server</h3>
+                    <h3 class="translate">Anlernen über Key Server</h3>
                 </td>
             </tr>
             <tr class="add-device-local">
                 <td colspan="3">
-                    <h3>Lokales Anlernen</h3>
+                    <h3 class="translate">Lokales Anlernen</h3>
                 </td>
             </tr>
             <tr class="add-device-local">
@@ -212,7 +212,7 @@
             <tr>
                 <td>Dauer:</td>
                 <td><input type="number" id="add-device-ip-time" value="60"/>s</td>
-                <td><input type="button" id="add-device-ip-start" value="Anlernmodus aktivieren"/></td>
+                <td><input type="button" id="add-device-ip-start" class="translateV" value="Anlernmodus aktivieren"/></td>
             </tr>
             <tr class="add-device-local">
                 <td colspan="3">
@@ -221,15 +221,15 @@
             </tr>
         </table>
     </div>
-    <div id="dialog-add-countdown" title="Anlernmodus aktiv">
+    <div id="dialog-add-countdown" class="translateT" title="Anlernmodus aktiv">
         <br/><br/>
-        <h3 style="width: 100%; text-align: center;">Zeit verbleibend: <span id="add-countdown"></span>s</h3>
+        <h3 style="width: 100%; text-align: center;"><span class="translate">Zeit verbleibend:</span>&nbsp;<span id="add-countdown"></span>s</h3>
     </div>
     <div id="dialog-alert" title="">
         <br/><br/>
         <h3 style="width: 100%; text-align: center;"><span id="alert"></span></h3>
     </div>
-    <div id="dialog-add-link" title="Direktverknüpfung anlegen">
+    <div id="dialog-add-link" class="translateT" title="Direktverknüpfung anlegen">
         <table>
             <tr>
                 <td class="translate">Sender</td>
@@ -297,6 +297,13 @@
         </p>
 
         <p>
+            <label for="ui-language-select" class="translate">Language</label>
+            <select id="ui-language-select">
+                <option value='en'>English</option>
+                <option value='de'>German</option>
+            </select>
+        </p>
+        <p>
             <label for="ccu-address" class="translate">CCU Address</label>
             <input type="text" id="ccu-address">
             <select id="ccu-address-select">
@@ -345,7 +352,7 @@
         <div style="height: 18px; padding: 0 6px 0 6px; display: block" ><img id="rpc-progress" src="images/ajax-loader.gif"></div>
         <span id="rpc-command"></span>
     </div>
-    <div id="dialog-disconnect" class="translateT" class="translateT" title="Disconnected">
+    <div id="dialog-disconnect" class="translateT" title="Disconnected">
         <h3 class="translate">Disconnected</h3>
     </div>
     <div id="dialog-servicemessage" class="translateT" title="New service message">
@@ -367,6 +374,7 @@
     <script>
         require('./js/homematic-manager.js');
     </script>
+
 
 </body>
 </html>
