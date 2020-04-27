@@ -3,6 +3,8 @@
 # Homematic Manager (Mikyjazz fork)
 
 [![Current Release](https://img.shields.io/github/release/mikyjazz/homematic-manager.svg?colorB=4cc61e)](https://github.com/mikyjazz/homematic-manager/releases/latest)
+[![Dependency Status](https://david-dm.org/mikyjazz/homematic-manager/status.svg)](https://david-dm.org/mikyjazz/homematic-manager)
+[![macOS and Linux Build Status](https://travis-ci.org/mikyjazz/homematic-manager.svg?branch=master)](https://travis-ci.org/mikyjazz/homematic-manager)
 [![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/mikyjazz/homematic-manager?branch=master&svg=true)](https://ci.appveyor.com/project/mikyjazz/homematic-manager)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![License: GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
@@ -30,3 +32,5 @@ The above copyright notice must be enclosed in all copies or partial copies of t
 THE SOFTWARE IS PROVIDED WITHOUT ANY EXPRESS OR IMPLIED WARRANTY, INCLUDING THE WARRANTY, FOR USE FOR THE INTENDED OR PARTICULAR PURPOSE, OR ANY VIOLATION OF THE LAW, BUT NOT LIMITED TO IT. IN NO EVENT WILL THE AUTHORS OR COPYRIGHT OWNERS BE LIABLE FOR ANY DAMAGE OR OTHER CLAIMS, WHETHER AS A PERFORMANCE OF A CONTRACT, A DELICIOUS OR OTHERWISE IN CONNECTION WITH THE SOFTWARE OR OTHER USE OF THE SOFTWARE OR OTHER USE.
 
 HomeMatic and BidCoS are registered trademarks of [eQ-3 AG](http://eq-3.de)
+
+You can find original project here [Homematic Manager](https://github.com/hobbyquaker/homematic-manager)
