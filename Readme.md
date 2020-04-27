@@ -3,9 +3,6 @@
 # Homematic Manager (Mikyjazz fork)
 
 [![Current Release](https://img.shields.io/github/release/mikyjazz/homematic-manager.svg?colorB=4cc61e)](https://github.com/mikyjazz/homematic-manager/releases/latest)
-[![Dependency Status](https://david-dm.org/mikyjazz/homematic-manager/status.svg)](https://david-dm.org/mikyjazz/homematic-manager)
-[![macOS and Linux Build Status](https://travis-ci.org/mikyjazz/homematic-manager.svg?branch=master)](https://travis-ci.org/mikyjazz/homematic-manager)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/mikyjazz/homematic-manager?branch=master&svg=true)](https://ci.appveyor.com/project/mikyjazz/homematic-manager)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![License: GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 
