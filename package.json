@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hobbyquaker/homematic-manager"
+    "url": "https://github.com/mikyjazz/homematic-manager"
   },
   "keywords": [
     "HomeMatic",
@@ -60,11 +60,11 @@
   ],
   "license": "GPLv3",
   "bugs": {
-    "url": "https://github.com/hobbyquaker/homematic-manager/issues"
+    "url": "https://github.com/mikyjazz/homematic-manager/issues"
   },
-  "homepage": "https://github.com/hobbyquaker/homematic-manager",
+  "homepage": "https://github.com/mikyjazz/homematic-manager",
   "build": {
-    "productName": "Homematic Manager",
+    "productName": "Homematic Manager (Mikyjazz fork)",
     "mac": {
       "category": "public.app-category.utilities",
       "target": [
