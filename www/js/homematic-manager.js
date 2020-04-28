@@ -149,6 +149,10 @@ Instascan.Camera.getCameras().then(c => {
 // Entrypoint
 getConfig();
 
+ipcRpc.on('aboutdialog', () => {
+    $dialogHelp.dialog('open');
+});
+
 ipcRpc.on('disconnect', () => {
     $dialogDisconnect.dialog('open');
 });

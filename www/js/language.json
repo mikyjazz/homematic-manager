@@ -454,5 +454,18 @@
   "Lizenz:": {
     "de": "Lizenz:",
     "en": "Licence"
+  },
+  "Wollen Sie wirklich das Gerät ": {
+    "de": "Wollen Sie wirklich das Gerät",
+    "en": "Do you really want to delete the device"
+  },
+  "löschen?": {
+    "de": "löschen?",
+    "en": "?"
+  },
+  "Changes and improvements by": {
+    "en": "Changes and improvements by",
+    "de": "Änderungen und Verbesserungen durch"
   }
+
 }

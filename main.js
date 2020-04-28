@@ -122,7 +122,7 @@ function createWindow() {
     const template = [{
         label: 'Application',
         submenu: [
-            {label: 'About Homematic Manager', selector: 'orderFrontStandardAboutPanel:'},
+            {label: 'About Homematic Manager', click: showAboutDialog},
             {type: 'separator'},
             {label: 'Quit', accelerator: 'Command+Q', click: app.quit}
         ]}, {
@@ -150,6 +150,9 @@ function createWindow() {
     
 }
 
+function showAboutDialog() {
+    ipcRpc.send('aboutdialog', null);
+}
 
 function checkservice(host, port, callback) {
     const c = net.connect({
