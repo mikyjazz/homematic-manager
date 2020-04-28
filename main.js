@@ -142,7 +142,9 @@ function createWindow() {
         config.rpcListenPort = port;
         nextPort(port + 1, portBin => {
             config.rpcListenPortBin = portBin;
-            //findInterfaces();
+            if (process.platform != 'win32') {
+                findInterfaces();
+            }
         });
     });
     
@@ -211,14 +213,20 @@ function findInterfaces() {
             });
             getRegaNames();
         }  
-        createWindow();
+        if (process.platform == 'win32') {
+            createWindow();
+        }
     })
 }
 
 
 app.on('ready', () => {
-    //createWindow();
-    findInterfaces();
+    if (process.platform == 'win32') {
+        findInterfaces();
+    } else {
+        createWindow();
+    }
+    
 });
 
 app.on('window-all-closed', () => {
