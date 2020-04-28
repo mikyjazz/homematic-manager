@@ -65,7 +65,7 @@ if (config.rpcInitIpSelect.indexOf(config.rpcInitIp) === -1) {
     config.rpcInitIp = config.rpcInitIpSelect[0];
 }
 
-config.language = config.language || 'de';
+config.language = config.language || 'en';
 
 config.ccuAddressSelect = [];
 hmDiscover(f => {

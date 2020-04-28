@@ -36,7 +36,7 @@ const translation = require('./language.json');
 
 const missesTranslation = {};
 
-let language = 'de';
+let language = 'en';
 const serviceMsgParams = [
     'CONFIG_PENDING',
     'DUTY_CYCLE',
