@@ -64,11 +64,14 @@
             <div id="pager-messages"></div>
         </div>
         <div id="events">
-           <div id="grid-events" class="ui-jqgrid" style="display: block;">
-               <div class="ui-jqgrid-titlebar ui-jqgrid-caption ui-widget-header ui-corner-top ui-helper-clearfix">
-                   <div class="">
+            <table id="grid-events"></table>
+            <div id="pager-events"></div>
+            <!--
+            <div id="grid-events" class="ui-jqgrid" style="display: block;">
+                <div class="ui-jqgrid-titlebar ui-jqgrid-caption ui-widget-header ui-corner-top ui-helper-clearfix">
+                    <div class="">
                        <span class="ui-jqgrid-title">Events</span>
-                   </div>
+                    </div>
 
                </div>
                <table style="width: 100%; border-collapse: collapse;" class="ui-widget ui-state-default ui-corner-bottom">
@@ -89,8 +92,8 @@
                        </tbody>
                    </table>
                </div>
-           </div>
-
+            </div>
+           -->
         </div>
     </div>
     <div id="dialog-paramset">
@@ -214,6 +217,18 @@
                 <td><input type="number" id="add-device-ip-time" value="60"/>s</td>
                 <td><input type="button" id="add-device-ip-start" class="translateV" value="Anlernmodus aktivieren"/></td>
             </tr>
+            <tr class="add-device-local">
+                <td>QR Scanner</td>
+                <td>
+                    <select id="qr-enable">
+                        <option>disable</option>
+                        <option>enable</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" id="qr-error" style="color: red;"></td>
+            </tr>            
             <tr class="add-device-local">
                 <td colspan="3">
                     <video id="qr"></video>

@@ -1,5 +1,6 @@
 /* global $, window, document, alert */
 /* eslint-disable import/no-unassigned-import */
+/* global $, window, document, alert */
 
 const ipc = require('electron').ipcRenderer;
 const {shell} = require('electron');
@@ -86,6 +87,7 @@ const $gridDevices = $('#grid-devices');
 const $gridLinks = $('#grid-links');
 const $gridRssi = $('#grid-rssi');
 const $gridMessages = $('#grid-messages');
+const $gridEvents = $('#grid-events');
 const $gridInterfaces = $('#grid-interfaces');
 
 const $tableEasymode = $('#table-easymode');
@@ -140,10 +142,33 @@ scanner.addListener('scan', content => {
         $('#add-device-ip-key').val(key);
     }
 });
-Instascan.Camera.getCameras().then(c => {
-    cameras = c;
-}).catch(e => {
-    console.error(e);
+
+function startScanner() {
+    Instascan.Camera.getCameras().then(c => {
+        if (c.length > 0) {
+            scanner.start(c[0]).catch(e => {
+                $('#qr-error').html(`Error: ${e.message}`);
+            });
+        } else {
+            $('#qr-error').html(`Error: no camera found`);
+        }
+    }).catch(e => {
+        $('#qr-error').html(`Error: ${e.message}`);
+    });
+}
+
+function stopScanner() {
+    scanner.stop();
+    $('#qr-error').html('');
+    $('#qr-enable').val('disable');
+}
+
+$('#qr-enable').change(() => {
+    if ($('#qr-enable').val() === 'enable') {
+        startScanner();
+    } else {
+        stopScanner();
+    }
 });
 
 // Entrypoint
@@ -170,6 +195,17 @@ ipcRpc.on('connection', connected => {
     $('#connection-indicator').html(`${config.ccuAddress}<br><span style="font-size: 8px; font-weight: normal;">${connections}</span>`);
 });
 
+let eventRow = 0;
+let newEvent = false;
+
+function pushEvent(data) {
+    newEvent = true;
+    eventsData.push(data);
+    if (eventsData.length > 8192) {
+        eventsData.splice(0, 1);
+    }
+}
+
 // Incoming Events
 ipcRpc.on('rpc', data => {
     const [method, params] = data;
@@ -182,6 +218,7 @@ ipcRpc.on('rpc', data => {
     }
     switch (method) {
         case 'newDevices': {
+            pushEvent({timestamp: ts(), method, value: JSON.stringify(params[1])});
             const devArr = params[1];
             $('div.ui-dialog[aria-describedby="dialog-alert"] .ui-dialog-title').html(_('New devices'));
             let count = 0;
@@ -205,6 +242,7 @@ ipcRpc.on('rpc', data => {
             break;
         }
         case 'deleteDevices': {
+            pushEvent({timestamp: ts(), method, value: JSON.stringify(params[1])});
             const devArr = params[1];
             $('div.ui-dialog[aria-describedby="dialog-alert"] .ui-dialog-title').html(_('Devices deleted'));
             let count = 0;
@@ -230,6 +268,7 @@ ipcRpc.on('rpc', data => {
             break;
         }
         case 'replaceDevice': {
+            pushEvent({timestamp: ts(), method, value: JSON.stringify(params[1])});
             getNames(() => {
                 getDevices(() => {
                     getLinks(() => {
@@ -242,17 +281,12 @@ ipcRpc.on('rpc', data => {
         case 'event': {
             const [, address, param, value] = params;
 
-            const timestamp = new Date();
-            const ts = timestamp.getFullYear() + '-' +
-                ('0' + (timestamp.getMonth() + 1).toString(10)).slice(-2) + '-' +
-                ('0' + (timestamp.getDate()).toString(10)).slice(-2) + ' ' +
-                ('0' + (timestamp.getHours()).toString(10)).slice(-2) + ':' +
-                ('0' + (timestamp.getMinutes()).toString(10)).slice(-2) + ':' +
-                ('0' + (timestamp.getSeconds()).toString(10)).slice(-2);
+            const [device, channel] = address.split(':');
 
             const name = names && names[address] ? names[address] : '';
 
-            $('#event-table').prepend('<tr class="ui-widget-content jqgrow ui-row-ltr "><td class="event-column-1 monospace">' + ts + '</td><td class="event-column-2">' + name + '</td><td class="event-column-3 monospace">' + address + '</td><td class="event-column-4 monospace">' + param + '</td><td class="event-column-5 monospace">' + value + '</td></tr>');
+            //$('#event-table').prepend('<tr class="ui-widget-content jqgrow ui-row-ltr "><td class="event-column-1 monospace">' + ts + '</td><td class="event-column-2">' + name + '</td><td class="event-column-3 monospace">' + address + '</td><td class="event-column-4 monospace">' + param + '</td><td class="event-column-5 monospace">' + value + '</td></tr>');
+            pushEvent({timestamp: ts(), method: 'event', channel, device, name, param, value});
 
             // Service-Meldung?
             if (!listMessages) {
@@ -339,6 +373,7 @@ ipcRpc.on('rpc', data => {
             break;
         }
         default:
+            pushEvent({timestamp: ts(), method, value: JSON.stringify(params[1])});
     }
 });
 
@@ -356,6 +391,7 @@ function _(word) {
 
     return word;
 }
+
 function translate() {
     $('.translate').each(function () {
         const $this = $(this);
@@ -397,15 +433,16 @@ function getConfig() {
         translate();
 
         initTabs();
-        initDialogsMisc();
-        initDialogParamset();
-        initDialogLinkParamset();
-        
+        initGridEvents();
         initGridDevices();
         initGridMessages();
         initGridLinks();
         initConsole();
        
+        initDialogsMisc();
+        initDialogParamset();
+        initDialogLinkParamset();
+
         $('#loader').hide();
 
         if (!config.ccuAddress) {
@@ -449,6 +486,7 @@ function getConfig() {
     });
     ipcRpc.send('getConfig');
 }
+
 function getNames(callback) {
     if (listRpcMethods.includes('getNames')) {
         ipcRpc.send('getNames', [], (err, data) => {
@@ -459,12 +497,26 @@ function getNames(callback) {
         callback();
     }
 }
+
+let refreshEvents = false;
+
+setInterval(() => {
+     if (refreshEvents) {
+        if (newEvent) {
+            newEvent = false;
+            $gridEvents.trigger('reloadGrid');
+        }
+     }
+}, 1000);
+
 function initTabs() {
     $tabsMain.tabs({
 
         activate(event, ui) {
             resizeGrids();
             const tab = ui.newTab[0].children[0].hash.slice(1);
+            refreshEvents = tab === 'events';
+            console.log('refreshEvents', refreshEvents);
             if (hash) {
                 window.location.hash = '/' + hash + '/' + tab;
             }
@@ -593,6 +645,7 @@ function initDialogsMisc() {
     });
 }
 function initDaemon() {
+    eventsData.length = 0;
     indexSourceRoles = {};
     indexTargetRoles = {};
     daemon = $('#select-bidcos-daemon option:selected').val();
@@ -631,6 +684,8 @@ function initDaemon() {
 
     console.log('initDaemon', daemon);
     console.log('window.location',  window.location);
+    $gridEvents.trigger('reloadGrid');
+
     if (daemon && config.daemons[daemon]) {
         const {type} = config.daemons[daemon];
         daemonType = type;
@@ -1049,7 +1104,7 @@ function initGridDevices() {
         autoOpen: false,
         modal: true,
         width: 640,
-        height: 480,
+        height:506,
         buttons: [
             {
                 text: _('Cancel'),
@@ -1057,7 +1112,10 @@ function initGridDevices() {
                     $(this).dialog('close');
                 }
             }
-        ]
+        ],
+        beforeClose() {
+            stopScanner();
+        }
     });
     $dialogAddCountdown.dialog({
         autoOpen: false,
@@ -1213,16 +1271,12 @@ function initGridDevices() {
                 case 'local':
                     $('.add-device-keyserver').hide();
                     $('.add-device-local').show();
-                    if (cameras.length > 0) {
-                        scanner.start(cameras[0]);
-                    }
                     break;
                 default:
                     $('.add-device-local').hide();
                     $('.add-device-keyserver').show();
-                    if (cameras.length > 0) {
-                        scanner.stop();
-                    }
+                    $('#qr-enable').val('disable');
+                    stopScanner();
             }
         }
     });
@@ -1238,9 +1292,6 @@ function initGridDevices() {
                 const sgtin = $.trim($('#add-device-ip-address').val()).toUpperCase().replace(/-/g, '');
                 const key = $.trim($('#add-device-ip-key').val()).toUpperCase().replace(/-/g, '');
                 if (sgtin && key) {
-                    if (cameras.length > 0) {
-                        scanner.stop();
-                    }
                     $('#dialog-add-device-ip').dialog('close');
                     rpcDialog(daemon, 'setInstallModeWithWhitelist', [true, time, [{
                         ADDRESS: sgtin,
@@ -1265,9 +1316,6 @@ function initGridDevices() {
                 break;
             }
             default: {
-                if (cameras.length > 0) {
-                    scanner.stop();
-                }
                 $('#dialog-add-device-ip').dialog('close');
                 rpcAlert(daemon, 'setInstallMode', [true, time], err => {
                     if (!err) {
@@ -3939,6 +3987,57 @@ function refreshGridInterfaces() {
     $gridInterfaces.trigger('reloadGrid');
 }
 
+const eventsData = [];
+
+function initGridEvents() {
+    $gridEvents.jqGrid({
+        colNames: ['Timestamp', 'Method', 'Name', 'Device', 'Channel', 'Param', 'Value'],
+        colModel: [
+            {name: 'timestamp', index: 'timestamp', width: 140, fixed: true, title: true, search: true},
+            {name: 'method', index: 'method', width: 80, fixed: true, title: true, align: 'center', search: true},
+            {name: 'name', index: 'name', width: 320, fixed: true, title: false, hidden: config.hideNameCols, search: true},
+            {name: 'device', index: 'device', width: 110, fixed: true, title: true, search: true},
+            {name: 'channel', index: 'channel', width: 60, fixed: true, title: false, align: 'right', search: true},
+            {name: 'param', index: 'param', width: 200, fixed: true, title: false, search: true},
+            {name: 'value', index: 'value', width: 80, fixed: false, title: false, align: 'right', search: true}
+        ],
+        data: eventsData,
+        datatype: 'local',
+        rowNum: 100,
+        autowidth: true,
+        width: '1000',
+        height: 'auto',
+        rowList: [25, 50, 100, 500],
+        pager: $('#pager-events'),
+        sortname: 'timestamp',
+        viewrecords: true,
+        sortorder: 'desc',
+        caption: _('Events'),
+
+    }).navGrid('#pager-events', {
+        search: false,
+        edit: false,
+        add: false,
+        del: false,
+        refresh: false
+    })/*.jqGrid('navButtonAdd', '#pager-events', {
+        caption: '',
+        buttonicon: 'ui-icon-refresh',
+        onClickButton: () => {
+            $gridEvents.trigger('reloadGrid');
+        },
+        position: 'first',
+        id: 'refresh-events',
+        title: _('Refresh'),
+        cursor: 'pointer'
+    })*/.jqGrid('filterToolbar', {
+        defaultSearch: 'cn',
+        autosearch: true,
+        searchOnEnter: false,
+        enableClear: true
+    })
+}
+
 // Service Messages
 function initGridMessages() {
     $gridMessages.jqGrid({
@@ -4617,10 +4716,10 @@ function resizeGrids() {
         y = 600;
     }
 
-    $('#grid-devices, #grid-links, #grid-messages').setGridHeight(y - 144).setGridWidth(x - 18);
+    $('#grid-devices, #grid-links, #grid-messages, #grid-events').setGridHeight(y - 144).setGridWidth(x - 18);
 
-    $('#grid-events').css('height', (y - 80) + 'px').css('width', (x - 18) + 'px');
-    $('#grid-events-inner').css('height', (y - 100) + 'px');
+    //$('#grid-events').css('height', (y - 80) + 'px').css('width', (x - 18) + 'px');
+    //$('#grid-events-inner').css('height', (y - 100) + 'px');
     $('#grid-interfaces')/* .setGridHeight(y - 99) */.setGridWidth(x - 18);
     $('#grid-rssi').setGridHeight(y - (173 + $('#gbox_grid-interfaces').height())).setGridWidth(x - 18);
 
@@ -4797,3 +4896,13 @@ function convertHmIPKeyBase32ToBase16(valueString) {
 
     return keyString.toUpperCase();
 }
+
+function ts() {
+    const timestamp = new Date();
+    return timestamp.getFullYear() + '-' +
+        ('0' + (timestamp.getMonth() + 1).toString(10)).slice(-2) + '-' +
+        ('0' + (timestamp.getDate()).toString(10)).slice(-2) + ' ' +
+        ('0' + (timestamp.getHours()).toString(10)).slice(-2) + ':' +
+        ('0' + (timestamp.getMinutes()).toString(10)).slice(-2) + ':' +
+        ('0' + (timestamp.getSeconds()).toString(10)).slice(-2);
+} 
